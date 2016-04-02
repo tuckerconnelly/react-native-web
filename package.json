@@ -8,6 +8,7 @@
   ],
   "scripts": {
     "build": "rm -rf ./dist && mkdir dist && babel src -d dist --ignore **/__tests__,src/modules/specHelpers",
+    "build:watch": "rm -rf ./dist && mkdir dist && babel src -d dist -w --ignore **/__tests__,src/modules/specHelpers",
     "build:umd": "webpack --config webpack.config.js --sort-assets-by --progress",
     "examples": "webpack-dev-server --config examples/webpack.config.js --inline --hot --colors --quiet",
     "lint": "eslint src",
