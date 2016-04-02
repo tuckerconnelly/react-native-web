@@ -14,6 +14,8 @@ class TextInput extends Component {
     ...View.propTypes,
     autoComplete: PropTypes.bool,
     autoFocus: PropTypes.bool,
+    children: PropTypes.node,
+    className: PropTypes.string,
     clearTextOnFocus: PropTypes.bool,
     defaultValue: PropTypes.string,
     editable: PropTypes.bool,
@@ -117,6 +119,8 @@ class TextInput extends Component {
       /* eslint-enable react/prop-types */
       autoComplete,
       autoFocus,
+      children,
+      className,
       defaultValue,
       editable,
       keyboardType,
@@ -190,6 +194,7 @@ class TextInput extends Component {
     return (
       <View
         accessibilityLabel={accessibilityLabel}
+        className={className}
         style={[
           styles.initial,
           style
@@ -198,14 +203,19 @@ class TextInput extends Component {
       >
         <View style={styles.wrapper}>
           <CoreComponent {...props} ref='input' />
-          {placeholder && this.state.showPlaceholder && <Text
+          {placeholder && this.state.showPlaceholder && <View
             pointerEvents='none'
-            style={[
-              styles.placeholder,
+            style={styles.placeholder}
+          >
+            <Text style={[
+              styles.placeholderText,
               placeholderTextColor && { color: placeholderTextColor }
-            ]}
-          >{placeholder}</Text>}
+            ]}>
+              {placeholder}
+            </Text>
+          </View>}
         </View>
+        {children}
       </View>
     )
   }
@@ -232,12 +242,15 @@ const styles = StyleSheet.create({
   },
   placeholder: {
     bottom: 0,
-    color: 'darkgray',
+    justifyContent: 'center',
     left: 0,
-    overflow: 'hidden',
     position: 'absolute',
     right: 0,
-    top: 0,
+    top: 0
+  },
+  placeholderText: {
+    color: 'darkgray',
+    overflow: 'hidden',
     whiteSpace: 'pre'
   }
 })
