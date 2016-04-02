@@ -13,9 +13,7 @@ import ReactDOM from 'react-dom'
 import ScrollResponder from '../../modules/ScrollResponder'
 import ScrollViewBase from './ScrollViewBase'
 import StyleSheet from '../../apis/StyleSheet'
-import StyleSheetPropType from '../../apis/StyleSheet/StyleSheetPropType'
 import View from '../View'
-import ViewStylePropTypes from '../View/ViewStylePropTypes'
 
 const INNERVIEW = 'InnerScrollView'
 const SCROLLVIEW = 'ScrollView'
@@ -24,7 +22,7 @@ const ScrollView = React.createClass({
   propTypes: {
     ...View.propTypes,
     children: View.propTypes.children,
-    contentContainerStyle: StyleSheetPropType(ViewStylePropTypes),
+    contentContainerStyle: PropTypes.oneOfType([PropTypes.array, PropTypes.object]),
     horizontal: PropTypes.bool,
     keyboardDismissMode: PropTypes.oneOf([ 'none', 'interactive', 'on-drag' ]),
     onContentSizeChange: PropTypes.func,
@@ -32,7 +30,7 @@ const ScrollView = React.createClass({
     refreshControl: PropTypes.element,
     scrollEnabled: PropTypes.bool,
     scrollEventThrottle: PropTypes.number,
-    style: StyleSheetPropType(ViewStylePropTypes)
+    style: PropTypes.oneOfType([PropTypes.array, PropTypes.object])
   },
 
   mixins: [ScrollResponder.Mixin],

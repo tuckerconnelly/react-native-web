@@ -2,8 +2,6 @@ import NativeMethodsDecorator from '../../modules/NativeMethodsDecorator'
 import CoreComponent from '../CoreComponent'
 import React, { Component, PropTypes } from 'react'
 import StyleSheet from '../../apis/StyleSheet'
-import StyleSheetPropType from '../../apis/StyleSheet/StyleSheetPropType'
-import TextStylePropTypes from './TextStylePropTypes'
 
 @NativeMethodsDecorator
 class Text extends Component {
@@ -14,7 +12,7 @@ class Text extends Component {
     children: PropTypes.any,
     numberOfLines: PropTypes.number,
     onPress: PropTypes.func,
-    style: StyleSheetPropType(TextStylePropTypes),
+    style: PropTypes.oneOfType([PropTypes.array, PropTypes.object]),
     testID: CoreComponent.propTypes.testID
   };
 

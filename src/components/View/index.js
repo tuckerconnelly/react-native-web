@@ -3,8 +3,6 @@ import normalizeNativeEvent from '../../apis/PanResponder/normalizeNativeEvent'
 import CoreComponent from '../CoreComponent'
 import React, { Component, PropTypes } from 'react'
 import StyleSheet from '../../apis/StyleSheet'
-import StyleSheetPropType from '../../apis/StyleSheet/StyleSheetPropType'
-import ViewStylePropTypes from './ViewStylePropTypes'
 
 @NativeMethodsDecorator
 class View extends Component {
@@ -35,7 +33,7 @@ class View extends Component {
     onTouchStart: PropTypes.func,
     onTouchStartCapture: PropTypes.func,
     pointerEvents: PropTypes.oneOf(['auto', 'box-none', 'box-only', 'none']),
-    style: StyleSheetPropType(ViewStylePropTypes),
+    style: PropTypes.oneOfType([PropTypes.array, PropTypes.object]),
     testID: CoreComponent.propTypes.testID
   };
 

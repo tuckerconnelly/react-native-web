@@ -3,10 +3,8 @@ import NativeMethodsDecorator from '../../modules/NativeMethodsDecorator'
 import resolveAssetSource from './resolveAssetSource'
 import CoreComponent from '../CoreComponent'
 import ImageResizeMode from './ImageResizeMode'
-import ImageStylePropTypes from './ImageStylePropTypes'
 import React, { Component, PropTypes } from 'react'
 import StyleSheet from '../../apis/StyleSheet'
-import StyleSheetPropType from '../../apis/StyleSheet/StyleSheetPropType'
 import View from '../View'
 
 const STATUS_ERRORED = 'ERRORED'
@@ -35,7 +33,7 @@ class Image extends Component {
     onLoadStart: PropTypes.func,
     resizeMode: PropTypes.oneOf(['contain', 'cover', 'none', 'stretch']),
     source: ImageSourcePropType,
-    style: StyleSheetPropType(ImageStylePropTypes),
+    style: PropTypes.oneOfType([PropTypes.array, PropTypes.object]),
     testID: CoreComponent.propTypes.testID
   };
 
