@@ -55,7 +55,7 @@ const NativeMethodsMixin = {
   measure(callback: MeasureOnSuccessCallback) {
     UIManager.measure(
       ReactDOM.findDOMNode(this),
-      mountSafeCallback(this, callback)
+      callback
     )
   },
 
@@ -105,6 +105,14 @@ const NativeMethodsMixin = {
       ReactDOM.findDOMNode(this),
       nativeProps
     )
+  },
+
+  componentDidMount() {
+    this._isMounted = true
+  },
+
+  componentWillUnmount() {
+    this._isMounted = false
   }
 }
 
@@ -112,8 +120,8 @@ const NativeMethodsMixin = {
  * In the future, we should cleanup callbacks by cancelling them instead of
  * using this.
  */
-const mountSafeCallback = (context: Component, callback: ?Function) => () => {
-  if (!callback || (context.isMounted && !context.isMounted())) {
+const mountSafeCallback = function (context: Component, callback: ?Function): any {
+  if (!callback || !context._isMounted) {
     return
   }
   return callback.apply(context, arguments)
