@@ -1,7 +1,9 @@
 // { scale: 2 } => 'scale(2)'
 const mapTransform = (transform) => {
   var key = Object.keys(transform)[0]
-  return `${key}(${transform[key]})`
+  let unit = ''
+  if (key.match(/translate/)) unit = 'px'
+  return `${key}(${transform[key]}${unit})`
 }
 
 // [1,2,3,4,5,6] => 'matrix3d(1,2,3,4,5,6)'
