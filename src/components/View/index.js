@@ -14,6 +14,7 @@ class View extends Component {
     children: PropTypes.any,
     onClick: PropTypes.func,
     onClickCapture: PropTypes.func,
+    onLayout: PropTypes.func,
     onMoveShouldSetResponder: PropTypes.func,
     onMoveShouldSetResponderCapture: PropTypes.func,
     onResponderGrant: PropTypes.func,
@@ -45,6 +46,12 @@ class View extends Component {
   constructor(props, context) {
     super(props, context)
     this._normalizeEventForHandler = this._normalizeEventForHandler.bind(this)
+  }
+
+  componentDidMount() {
+    const { onLayout } = this.props
+    if (!onLayout) return
+    onLayout()
   }
 
   render() {
