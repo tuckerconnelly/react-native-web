@@ -51,7 +51,7 @@ class View extends Component {
   componentDidMount() {
     const { onLayout } = this.props
     if (!onLayout) return
-    onLayout()
+    setTimeout(onLayout)
   }
 
   render() {
