@@ -172,7 +172,10 @@ class TextInput extends Component {
       onFocus: this._onFocus.bind(this),
       onSelect: onSelectionChange && this._onSelectionChange.bind(this),
       readOnly: !editable,
-      style: { ...styles.input, outline: style.outline },
+      style: {
+        ...styles.input,
+        cursor: style.cursor
+      },
       value
     }
 
@@ -195,10 +198,7 @@ class TextInput extends Component {
       <View
         accessibilityLabel={accessibilityLabel}
         className={className}
-        style={[
-          styles.initial,
-          style
-        ]}
+        style={style}
         testID={testID}
       >
         <View style={styles.wrapper}>
@@ -222,10 +222,6 @@ class TextInput extends Component {
 }
 
 const styles = StyleSheet.create({
-  initial: {
-    borderColor: 'black',
-    borderWidth: 1
-  },
   wrapper: {
     flexGrow: 1
   },
@@ -237,6 +233,7 @@ const styles = StyleSheet.create({
     color: 'inherit',
     flexGrow: 1,
     font: 'inherit',
+    outline: 'none',
     padding: 0,
     zIndex: 1
   },
