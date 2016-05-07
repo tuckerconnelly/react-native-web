@@ -88,4 +88,5 @@ const ReactNative = {
   ...ReactDOMServer
 }
 
-module.exports = ReactNative
+if (!global.__BUNDLE_START_TIME__) module.exports = ReactNative
+else module.exports = require('react-native')

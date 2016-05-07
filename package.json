@@ -1,5 +1,5 @@
 {
-  "name": "react-native-web",
+  "name": "universal-react-native",
   "version": "0.0.21",
   "description": "React Native for Web",
   "main": "dist/index.js",
