@@ -144,23 +144,40 @@ var TouchableWithoutFeedback = React.createClass({
   },
 
   render: function(): ReactElement {
+    const {
+      accessible,
+      accessibilityLabel,
+      accessibilityRole,
+      testID,
+      onLayout,
+      hitSlop,
+      style,
+      ...other
+    } = this.props
     // Note(avik): remove dynamic typecast once Flow has been upgraded
-    return (React: any).cloneElement(React.Children.only(this.props.children), {
-      accessible: this.props.accessible !== false,
-      accessibilityLabel: this.props.accessibilityLabel,
-      accessibilityRole: this.props.accessibilityRole,
-      testID: this.props.testID,
-      onLayout: this.props.onLayout,
-      hitSlop: this.props.hitSlop,
-      onStartShouldSetResponder: this.touchableHandleStartShouldSetResponder,
-      onResponderTerminationRequest: this.touchableHandleResponderTerminationRequest,
-      onResponderGrant: this.touchableHandleResponderGrant,
-      onResponderMove: this.touchableHandleResponderMove,
-      onResponderRelease: this.touchableHandleResponderRelease,
-      onResponderTerminate: this.touchableHandleResponderTerminate,
-      tabIndex: '0'
-    });
+    return <View
+      accessible={accessible !== false}
+      accessibilityLabel={accessibilityLabel}
+      accessibilityRole={accessibilityRole}
+      testID={testID}
+      onLayout={onLayout}
+      hitSlop={hitSlop}
+      onStartShouldSetResponder={this.touchableHandleStartShouldSetResponder}
+      onResponderTerminationRequest={this.touchableHandleResponderTerminationRequest}
+      onResponderGrant={this.touchableHandleResponderGrant}
+      onResponderMove={this.touchableHandleResponderMove}
+      onResponderRelease={this.touchableHandleResponderRelease}
+      onResponderTerminate={this.touchableHandleResponderTerminate}
+      tabIndex="0"
+      style={[style, styles.root]}
+      {...other} />
   }
 });
+
+const styles = {
+  root: {
+    outline: 'none',
+  }
+}
 
 module.exports = TouchableWithoutFeedback;
