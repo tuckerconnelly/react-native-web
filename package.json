@@ -17,6 +17,7 @@
     "test:watch": "npm run test -- --no-single-run"
   },
   "dependencies": {
+    "classnames": "^2.2.5",
     "fbjs": "0.6.x || 0.7.x",
     "inline-style-prefix-all": "^1.0.4",
     "lodash.debounce": "^4.0.3",

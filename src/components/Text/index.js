@@ -1,7 +1,8 @@
+import classNames from 'classnames'
+
 import NativeMethodsDecorator from '../../modules/NativeMethodsDecorator'
 import CoreComponent from '../CoreComponent'
 import React, { Component, PropTypes } from 'react'
-import StyleSheet from '../../apis/StyleSheet'
 
 @NativeMethodsDecorator
 class Text extends Component {
@@ -10,9 +11,9 @@ class Text extends Component {
     accessibilityRole: CoreComponent.propTypes.accessibilityRole,
     accessible: CoreComponent.propTypes.accessible,
     children: PropTypes.any,
+    className: PropTypes.string,
     numberOfLines: PropTypes.number,
     onPress: PropTypes.func,
-    style: PropTypes.oneOfType([PropTypes.array, PropTypes.object]),
     testID: CoreComponent.propTypes.testID
   };
 
@@ -26,43 +27,25 @@ class Text extends Component {
 
   render() {
     const {
+      className,
       numberOfLines,
       onPress,
-      style,
       ...other
     } = this.props
 
     return (
       <CoreComponent
         {...other}
+        className={classNames(
+          'rnw-Text',
+          className,
+          numberOfLines === 1 && 'rnw-Text-singleLineStyle'
+        )}
         component='span'
         onClick={this._onPress.bind(this)}
-        style={[
-          styles.initial,
-          style,
-          numberOfLines === 1 && styles.singleLineStyle
-        ]}
       />
     )
   }
 }
-
-const styles = StyleSheet.create({
-  initial: {
-    color: 'inherit',
-    display: 'inline',
-    font: 'inherit',
-    margin: 0,
-    padding: 0,
-    textDecorationLine: 'none',
-    wordWrap: 'break-word'
-  },
-  singleLineStyle: {
-    maxWidth: '100%',
-    overflow: 'hidden',
-    textOverflow: 'ellipsis',
-    whiteSpace: 'nowrap'
-  }
-})
 
 module.exports = Text

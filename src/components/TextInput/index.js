@@ -2,7 +2,6 @@ import NativeMethodsDecorator from '../../modules/NativeMethodsDecorator'
 import CoreComponent from '../CoreComponent'
 import React, { Component, PropTypes } from 'react'
 import ReactDOM from 'react-dom'
-import StyleSheet from '../../apis/StyleSheet'
 import Text from '../Text'
 import TextareaAutosize from 'react-textarea-autosize'
 import TextInputState from './TextInputState'
@@ -33,7 +32,7 @@ class TextInput extends Component {
     placeholderTextColor: PropTypes.string,
     secureTextEntry: PropTypes.bool,
     selectTextOnFocus: PropTypes.bool,
-    style: Text.propTypes.style,
+    style: PropTypes.oneOfType([PropTypes.array, PropTypes.object]),
     testID: CoreComponent.propTypes.testID,
     value: PropTypes.string
   };
@@ -165,6 +164,7 @@ class TextInput extends Component {
     const propsCommon = {
       autoComplete: autoComplete && 'on',
       autoFocus,
+      className: 'rnw-TextInput',
       defaultValue,
       maxLength,
       onBlur: this._onBlur.bind(this),
@@ -172,10 +172,6 @@ class TextInput extends Component {
       onFocus: this._onFocus.bind(this),
       onSelect: onSelectionChange && this._onSelectionChange.bind(this),
       readOnly: !editable,
-      style: {
-        ...styles.input,
-        cursor: style.cursor
-      },
       value
     }
 
@@ -201,16 +197,18 @@ class TextInput extends Component {
         style={style}
         testID={testID}
       >
-        <View style={styles.wrapper}>
+        <View className='rnw-TextInput-wrapper'>
           <CoreComponent {...props} ref='input' />
           {placeholder && this.state.showPlaceholder && <View
+            className='rnw-TextInput-placeholder'
             pointerEvents='none'
-            style={styles.placeholder}
           >
-            <Text style={[
-              styles.placeholderText,
-              placeholderTextColor && { color: placeholderTextColor }
-            ]}>
+            <Text
+              className='rnw-TextInput-placeholderText'
+              style={
+                placeholderTextColor && { color: placeholderTextColor }
+              }
+            >
               {placeholder}
             </Text>
           </View>}
@@ -220,36 +218,5 @@ class TextInput extends Component {
     )
   }
 }
-
-const styles = StyleSheet.create({
-  wrapper: {
-    flexGrow: 1
-  },
-  input: {
-    appearance: 'none',
-    backgroundColor: 'transparent',
-    borderWidth: 0,
-    boxSizing: 'border-box',
-    color: 'inherit',
-    flexGrow: 1,
-    font: 'inherit',
-    outline: 'none',
-    padding: 0,
-    zIndex: 1
-  },
-  placeholder: {
-    bottom: 0,
-    justifyContent: 'center',
-    left: 0,
-    position: 'absolute',
-    right: 0,
-    top: 0
-  },
-  placeholderText: {
-    color: 'darkgray',
-    overflow: 'hidden',
-    whiteSpace: 'pre'
-  }
-})
 
 module.exports = TextInput

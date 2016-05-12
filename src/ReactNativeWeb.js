@@ -41,6 +41,9 @@ import ColorPropType from './apis/StyleSheet/ColorPropType'
 import EdgeInsetsPropType from './apis/StyleSheet/EdgeInsetsPropType'
 import PointPropType from './apis/StyleSheet/PointPropType'
 
+// other
+import BaseStyles from './components/BaseStyles'
+
 const ReactNative = {
   // apis
   Animated,
@@ -79,6 +82,9 @@ const ReactNative = {
   ColorPropType,
   EdgeInsetsPropType,
   PointPropType,
+
+  // other
+  BaseStyles,
 
   // React
   ...React

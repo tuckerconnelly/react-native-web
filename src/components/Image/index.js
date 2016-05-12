@@ -1,3 +1,5 @@
+import classNames from 'classnames'
+
 /* global window */
 import NativeMethodsDecorator from '../../modules/NativeMethodsDecorator'
 import resolveAssetSource from './resolveAssetSource'
@@ -26,6 +28,7 @@ class Image extends Component {
     accessibilityLabel: CoreComponent.propTypes.accessibilityLabel,
     accessible: CoreComponent.propTypes.accessible,
     children: PropTypes.any,
+    className: PropTypes.string,
     defaultSource: ImageSourcePropType,
     onError: PropTypes.func,
     onLoad: PropTypes.func,
@@ -134,6 +137,7 @@ class Image extends Component {
       accessibilityLabel,
       accessible,
       children,
+      className,
       defaultSource,
       source,
       testID
@@ -160,46 +164,25 @@ class Image extends Component {
         accessibilityLabel={accessibilityLabel}
         accessibilityRole='img'
         accessible={accessible}
+        className={classNames('rnw-Image-initial', className)}
         style={[
-          styles.initial,
-          style,
           backgroundImage && { backgroundImage },
-          resizeModeStyles[resizeMode]
+          resizeModeStyles[resizeMode],
+          style
         ]}
         testID={testID}
       >
-        <img src={displayImage} style={styles.img} />
+        <img className='rnw-Image' src={displayImage} />
         {children ? (
-          <View children={children} pointerEvents='box-none' style={styles.children} />
+          <View
+            children={children}
+            className='rnw-Image-children'
+            pointerEvents='box-none' />
         ) : null}
       </View>
     )
   }
 }
-
-const styles = StyleSheet.create({
-  initial: {
-    alignSelf: 'flex-start',
-    backgroundColor: 'transparent',
-    backgroundPosition: 'center',
-    backgroundRepeat: 'no-repeat',
-    backgroundSize: 'cover'
-  },
-  img: {
-    borderWidth: 0,
-    height: 'auto',
-    maxHeight: '100%',
-    maxWidth: '100%',
-    opacity: 0
-  },
-  children: {
-    bottom: 0,
-    left: 0,
-    position: 'absolute',
-    right: 0,
-    top: 0
-  }
-})
 
 const resizeModeStyles = StyleSheet.create({
   contain: {

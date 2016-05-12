@@ -1,8 +1,9 @@
+import classNames from 'classnames'
+
 import NativeMethodsDecorator from '../../modules/NativeMethodsDecorator'
 import normalizeNativeEvent from '../../apis/PanResponder/normalizeNativeEvent'
 import CoreComponent from '../CoreComponent'
 import React, { Component, PropTypes } from 'react'
-import StyleSheet from '../../apis/StyleSheet'
 
 @NativeMethodsDecorator
 class View extends Component {
@@ -12,6 +13,7 @@ class View extends Component {
     accessibilityRole: CoreComponent.propTypes.accessibilityRole,
     accessible: CoreComponent.propTypes.accessible,
     children: PropTypes.any,
+    className: PropTypes.string,
     onClick: PropTypes.func,
     onClickCapture: PropTypes.func,
     onLayout: PropTypes.func,
@@ -56,17 +58,18 @@ class View extends Component {
 
   render() {
     const {
+      className,
       pointerEvents,
       style,
       ...other
     } = this.props
 
-    const flattenedStyle = StyleSheet.flatten(style)
     const pointerEventsStyle = pointerEvents && { pointerEvents }
 
     return (
       <CoreComponent
         {...other}
+        className={classNames('rnw-View', className)}
         onClick={this._handleClick}
         onClickCapture={this._normalizeEventForHandler(this.props.onClickCapture)}
         onTouchCancel={this._normalizeEventForHandler(this.props.onTouchCancel)}
@@ -78,10 +81,7 @@ class View extends Component {
         onTouchStart={this._normalizeEventForHandler(this.props.onTouchStart)}
         onTouchStartCapture={this._normalizeEventForHandler(this.props.onTouchStartCapture)}
         style={[
-          styles.initial,
           style,
-          // 'View' needs to use 'flexShrink' in its reset when there is no 'flex' style provided
-          flattenedStyle.flex == null && styles.flexReset,
           pointerEventsStyle
         ]}
       />
@@ -102,35 +102,5 @@ class View extends Component {
     }
   }
 }
-
-const styles = StyleSheet.create({
-  // https://github.com/facebook/css-layout#default-values
-  initial: {
-    alignItems: 'stretch',
-    borderWidth: 0,
-    borderStyle: 'solid',
-    boxSizing: 'border-box',
-    display: 'flex',
-    flexBasis: 'auto',
-    flexDirection: 'column',
-    margin: 0,
-    padding: 0,
-    position: 'relative',
-    // button and anchor reset
-    backgroundColor: 'transparent',
-    color: 'inherit',
-    font: 'inherit',
-    textAlign: 'inherit',
-    textDecorationLine: 'none',
-    // list reset
-    listStyle: 'none',
-    // fix flexbox bugs
-    minHeight: 0,
-    minWidth: 0
-  },
-  flexReset: {
-    flexShrink: 0
-  }
-})
 
 module.exports = View
