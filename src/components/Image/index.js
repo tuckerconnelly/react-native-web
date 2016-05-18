@@ -57,6 +57,31 @@ class Image extends Component {
     this._onLoad = this._onLoad.bind(this)
   }
 
+  componentDidMount() {
+    if (this.state.status === STATUS_PENDING) {
+      this._createImageLoader()
+    }
+  }
+
+  componentWillReceiveProps(nextProps) {
+    const nextUri = resolveAssetSource(nextProps.source)
+    if (resolveAssetSource(this.props.source) !== nextUri) {
+      this.setState({
+        status: nextUri ? STATUS_PENDING : STATUS_IDLE
+      })
+    }
+  }
+
+  componentDidUpdate() {
+    if (this.state.status === STATUS_PENDING && !this.image) {
+      this._createImageLoader()
+    }
+  }
+
+  componentWillUnmount() {
+    this._destroyImageLoader()
+  }
+
   _createImageLoader() {
     const uri = resolveAssetSource(this.props.source)
 
@@ -107,31 +132,6 @@ class Image extends Component {
     if (onLoadStart) onLoadStart()
   }
 
-  componentDidMount() {
-    if (this.state.status === STATUS_PENDING) {
-      this._createImageLoader()
-    }
-  }
-
-  componentDidUpdate() {
-    if (this.state.status === STATUS_PENDING && !this.image) {
-      this._createImageLoader()
-    }
-  }
-
-  componentWillReceiveProps(nextProps) {
-    const nextUri = resolveAssetSource(nextProps.source)
-    if (resolveAssetSource(this.props.source) !== nextUri) {
-      this.setState({
-        status: nextUri ? STATUS_PENDING : STATUS_IDLE
-      })
-    }
-  }
-
-  componentWillUnmount() {
-    this._destroyImageLoader()
-  }
-
   render() {
     const {
       accessibilityLabel,
@@ -162,7 +162,7 @@ class Image extends Component {
     return (
       <View
         accessibilityLabel={accessibilityLabel}
-        accessibilityRole='img'
+        accessibilityRole="img"
         accessible={accessible}
         className={classNames('rnw-Image-initial', className)}
         style={[
@@ -172,12 +172,13 @@ class Image extends Component {
         ]}
         testID={testID}
       >
-        <img className='rnw-Image' src={displayImage} />
+        <img className="rnw-Image" src={displayImage} role="presentation" />
         {children ? (
           <View
             children={children}
-            className='rnw-Image-children'
-            pointerEvents='box-none' />
+            className="rnw-Image-children"
+            pointerEvents="box-none"
+          />
         ) : null}
       </View>
     )

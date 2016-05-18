@@ -22,9 +22,9 @@ module.exports = function flattenStyle(style): ?Object {
   for (let i = 0; i < style.length; ++i) {
     const computedStyle = flattenStyle(style[i])
     if (computedStyle) {
-      for (const key in computedStyle) {
+      Object.keys(computedStyle).forEach(key => {
         result[key] = computedStyle[key]
-      }
+      })
     }
   }
   return result

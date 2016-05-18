@@ -24,9 +24,9 @@ const supportsTouch = ExecutionEnvironment.canUseDOM && (
   window.DocumentTouch && document instanceof window.DocumentTouch
 )
 
-const endDependencies = supportsTouch ? [ topTouchCancel, topTouchEnd ] : [ topMouseUp ]
-const moveDependencies = supportsTouch ? [ topTouchMove ] : [ topMouseMove ]
-const startDependencies = supportsTouch ? [ topTouchStart ] : [ topMouseDown ]
+const endDependencies = supportsTouch ? [topTouchCancel, topTouchEnd] : [topMouseUp]
+const moveDependencies = supportsTouch ? [topTouchMove] : [topMouseMove]
+const startDependencies = supportsTouch ? [topTouchStart] : [topMouseDown]
 
 /**
  * Setup ResponderEventPlugin dependencies
@@ -40,8 +40,8 @@ ResponderEventPlugin.eventTypes.responderGrant.dependencies = []
 ResponderEventPlugin.eventTypes.responderReject.dependencies = []
 ResponderEventPlugin.eventTypes.responderTerminate.dependencies = []
 ResponderEventPlugin.eventTypes.moveShouldSetResponder.dependencies = moveDependencies
-ResponderEventPlugin.eventTypes.selectionChangeShouldSetResponder.dependencies = [ topSelectionChange ]
-ResponderEventPlugin.eventTypes.scrollShouldSetResponder.dependencies = [ topScroll ]
+ResponderEventPlugin.eventTypes.selectionChangeShouldSetResponder.dependencies = [topSelectionChange]
+ResponderEventPlugin.eventTypes.scrollShouldSetResponder.dependencies = [topScroll]
 ResponderEventPlugin.eventTypes.startShouldSetResponder.dependencies = startDependencies
 
 const originalRecordTouchTrack = ResponderTouchHistoryStore.recordTouchTrack

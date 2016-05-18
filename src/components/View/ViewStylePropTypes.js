@@ -5,8 +5,8 @@ import LayoutPropTypes from '../../apis/StyleSheet/LayoutPropTypes'
 import TransformPropTypes from '../../apis/StyleSheet/TransformPropTypes'
 
 const { number, oneOf, string } = PropTypes
-const autoOrHiddenOrVisible = oneOf([ 'auto', 'hidden', 'visible' ])
-const hiddenOrVisible = oneOf([ 'hidden', 'visible' ])
+const autoOrHiddenOrVisible = oneOf(['auto', 'hidden', 'visible'])
+const hiddenOrVisible = oneOf(['hidden', 'visible'])
 
 module.exports = {
   ...BorderPropTypes,
@@ -23,7 +23,7 @@ module.exports = {
   backgroundClip: string,
   backgroundImage: string,
   backgroundPosition: string,
-  backgroundOrigin: oneOf([ 'border-box', 'content-box', 'padding-box' ]),
+  backgroundOrigin: oneOf(['border-box', 'content-box', 'padding-box']),
   backgroundRepeat: string,
   backgroundSize: string,
   boxShadow: string,

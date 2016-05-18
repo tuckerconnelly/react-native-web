@@ -79,22 +79,6 @@ class Portal extends Component {
     this._showModal = this._showModal.bind(this)
   }
 
-  render() {
-    _portalRef = this
-    if (!this.state.modals) { return null }
-    const modals = []
-    for (const tag in this.state.modals) {
-      modals.push(this.state.modals[tag])
-    }
-    if (modals.length === 0) { return null }
-
-    return (
-      <View style={styles.root}>
-        {modals}
-      </View>
-    )
-  }
-
   _closeModal(tag: string) {
     if (!this.state.modals.hasOwnProperty(tag)) {
       return
@@ -137,6 +121,22 @@ class Portal extends Component {
       modals[tag] = component
       return { modals }
     })
+  }
+
+  render() {
+    _portalRef = this
+    if (!this.state.modals) { return null }
+    const modals = []
+    Object.keys(this.state.modals).forEach(tag => {
+      modals.push(this.state.modals[tag])
+    })
+    if (modals.length === 0) { return null }
+
+    return (
+      <View style={styles.root}>
+        {modals}
+      </View>
+    )
   }
 }
 

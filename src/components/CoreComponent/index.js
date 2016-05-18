@@ -22,11 +22,11 @@ const roleComponents = {
 class CoreComponent extends Component {
   static propTypes = {
     accessibilityLabel: PropTypes.string,
-    accessibilityLiveRegion: PropTypes.oneOf([ 'assertive', 'off', 'polite' ]),
+    accessibilityLiveRegion: PropTypes.oneOf(['assertive', 'off', 'polite']),
     accessibilityRole: PropTypes.string,
     accessible: PropTypes.bool,
-    component: PropTypes.oneOfType([ PropTypes.func, PropTypes.string ]),
-    style: PropTypes.oneOfType([ PropTypes.array, PropTypes.object ]),
+    component: PropTypes.oneOfType([PropTypes.func, PropTypes.string]),
+    style: PropTypes.oneOfType([PropTypes.array, PropTypes.object]),
     testID: PropTypes.string,
     type: PropTypes.string
   };

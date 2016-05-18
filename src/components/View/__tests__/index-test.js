@@ -39,7 +39,7 @@ suite('components/View', () => {
   })
 
   test('prop "pointerEvents"', () => {
-    const result = utils.shallowRender(<View pointerEvents='box-only' />)
+    const result = utils.shallowRender(<View pointerEvents="box-only" />)
     assert.equal(StyleSheet.flatten(result.props.style).pointerEvents, 'box-only')
   })
 

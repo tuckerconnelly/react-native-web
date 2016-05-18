@@ -21,10 +21,10 @@ const _destroy = () => {
 }
 
 const create = (styles: Object): Object => {
-  for (const key in styles) {
+  Object.keys(styles).forEach(key => {
     StyleSheetValidation.validateStyle(key, styles)
     StyleSheetRegistry.registerStyle(styles[key])
-  }
+  })
 
   // update the style sheet in place
   if (isRendered) {

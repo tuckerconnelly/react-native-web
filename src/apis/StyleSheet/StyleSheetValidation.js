@@ -28,17 +28,16 @@ class StyleSheetValidation {
   }
 
   static validateStyle(name, styles) {
-    if (process.env.NODE_ENV !== 'production') {
-      for (const prop in styles[name]) {
-        StyleSheetValidation.validateStyleProp(prop, styles[name], 'StyleSheet ' + name)
-      }
-    }
+    if (process.env.NODE_ENV === 'production') return
+    Object.keys(styles[name]).forEach(prop => {
+      StyleSheetValidation.validateStyleProp(prop, styles[name], 'StyleSheet ' + name)
+    })
   }
 
   static addValidStylePropTypes(stylePropTypes) {
-    for (const key in stylePropTypes) {
+    Object.keys(stylePropTypes).forEach(key => {
       allStylePropTypes[key] = stylePropTypes[key]
-    }
+    })
   }
 }
 
@@ -61,7 +60,7 @@ StyleSheetValidation.addValidStylePropTypes({
   cursor: PropTypes.string,
   display: PropTypes.string,
   direction: PropTypes.string, /* @private */
-  float: PropTypes.oneOf([ 'left', 'none', 'right' ]),
+  float: PropTypes.oneOf(['left', 'none', 'right']),
   font: PropTypes.string, /* @private */
   listStyle: PropTypes.string
 })

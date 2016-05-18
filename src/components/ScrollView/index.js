@@ -18,13 +18,13 @@ import View from '../View'
 const INNERVIEW = 'InnerScrollView'
 const SCROLLVIEW = 'ScrollView'
 
-const ScrollView = React.createClass({
+const ScrollView = React.createClass({ // eslint-disable-line react/prefer-es6-class
   propTypes: {
     ...View.propTypes,
     children: View.propTypes.children,
     contentContainerStyle: PropTypes.oneOfType([PropTypes.array, PropTypes.object]),
     horizontal: PropTypes.bool,
-    keyboardDismissMode: PropTypes.oneOf([ 'none', 'interactive', 'on-drag' ]),
+    keyboardDismissMode: PropTypes.oneOf(['none', 'interactive', 'on-drag']),
     onContentSizeChange: PropTypes.func,
     onScroll: PropTypes.func,
     refreshControl: PropTypes.element,
@@ -79,10 +79,10 @@ const ScrollView = React.createClass({
     if (typeof y === 'number') {
       console.warn('`scrollTo(y, x, animated)` is deprecated. Use `scrollTo({x: 5, y: 5, animated: true})` instead.')
     } else {
-      ({x, y, animated} = y || {})
+      ({ x, y, animated } = y || {})
     }
 
-    this.getScrollResponder().scrollResponderScrollTo({x: x || 0, y: y || 0, animated: animated !== false})
+    this.getScrollResponder().scrollResponderScrollTo({ x: x || 0, y: y || 0, animated: animated !== false })
   },
 
   /**
@@ -90,7 +90,7 @@ const ScrollView = React.createClass({
    */
   scrollWithoutAnimationTo(y: number = 0, x: number = 0) {
     console.warn('`scrollWithoutAnimationTo` is deprecated. Use `scrollTo` instead')
-    this.scrollTo({x, y, animated: false})
+    this.scrollTo({ x, y, animated: false })
   },
 
   handleScroll(e: Object) {
@@ -185,7 +185,7 @@ const ScrollView = React.createClass({
       'ScrollViewClass must not be undefined'
     )
 
-    var refreshControl = this.props.refreshControl
+    const refreshControl = this.props.refreshControl
     if (refreshControl) {
       return React.cloneElement(
         refreshControl,

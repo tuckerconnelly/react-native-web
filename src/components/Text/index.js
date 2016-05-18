@@ -41,7 +41,7 @@ class Text extends Component {
           className,
           numberOfLines === 1 && 'rnw-Text-singleLineStyle'
         )}
-        component='span'
+        component="span"
         onClick={this._onPress.bind(this)}
       />
     )

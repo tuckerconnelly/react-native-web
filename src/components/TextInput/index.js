@@ -51,6 +51,10 @@ class TextInput extends Component {
     this.state = { showPlaceholder: !props.value && !props.defaultValue }
   }
 
+  setNativeProps(props) {
+    this.refs.input.setNativeProps(props)
+  }
+
   blur() {
     TextInputState.blurTextInput(ReactDOM.findDOMNode(this.refs.input))
   }
@@ -61,10 +65,6 @@ class TextInput extends Component {
 
   focus() {
     TextInputState.focusTextInput(ReactDOM.findDOMNode(this.refs.input))
-  }
-
-  setNativeProps(props) {
-    this.refs.input.setNativeProps(props)
   }
 
   _onBlur(e) {
@@ -197,14 +197,14 @@ class TextInput extends Component {
         style={style}
         testID={testID}
       >
-        <View className='rnw-TextInput-wrapper'>
-          <CoreComponent {...props} ref='input' />
+        <View className="rnw-TextInput-wrapper">
+          <CoreComponent {...props} ref="input" />
           {placeholder && this.state.showPlaceholder && <View
-            className='rnw-TextInput-placeholder'
-            pointerEvents='none'
+            className="rnw-TextInput-placeholder"
+            pointerEvents="none"
           >
             <Text
-              className='rnw-TextInput-placeholderText'
+              className="rnw-TextInput-placeholderText"
               style={
                 placeholderTextColor && { color: placeholderTextColor }
               }

@@ -1,6 +1,6 @@
 // { scale: 2 } => 'scale(2)'
 const mapTransform = (transform) => {
-  var key = Object.keys(transform)[0]
+  const key = Object.keys(transform)[0]
   let unit = ''
   if (key.match(/translate/)) unit = 'px'
   return `${key}(${transform[key]}${unit})`
@@ -8,7 +8,7 @@ const mapTransform = (transform) => {
 
 // [1,2,3,4,5,6] => 'matrix3d(1,2,3,4,5,6)'
 const convertTransformMatrix = (transformMatrix) => {
-  var matrix = transformMatrix.join(',')
+  const matrix = transformMatrix.join(',')
   return `matrix3d(${matrix})`
 }
 

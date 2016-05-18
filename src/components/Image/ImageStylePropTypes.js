@@ -4,7 +4,7 @@ import LayoutPropTypes from '../../apis/StyleSheet/LayoutPropTypes'
 import TransformPropTypes from '../../apis/StyleSheet/TransformPropTypes'
 import ImageResizeMode from './ImageResizeMode'
 
-const hiddenOrVisible = PropTypes.oneOf([ 'hidden', 'visible' ])
+const hiddenOrVisible = PropTypes.oneOf(['hidden', 'visible'])
 
 module.exports = {
   ...LayoutPropTypes,

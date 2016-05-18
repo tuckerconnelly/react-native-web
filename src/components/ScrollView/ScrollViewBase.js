@@ -60,7 +60,7 @@ export default class ScrollViewBase extends Component {
     }
   }
 
-  _handleScrollStart(e) {
+  _handleScrollStart() {
     this._state.isScrolling = true
     this._state.scrollLastTick = Date.now()
   }

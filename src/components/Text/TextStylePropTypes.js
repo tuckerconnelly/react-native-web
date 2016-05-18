@@ -3,7 +3,7 @@ import ColorPropType from '../../apis/StyleSheet/ColorPropType'
 import ViewStylePropTypes from '../View/ViewStylePropTypes'
 
 const { number, oneOf, oneOfType, string } = PropTypes
-const numberOrString = oneOfType([ number, string ])
+const numberOrString = oneOfType([number, string])
 
 module.exports = {
   ...ViewStylePropTypes,
@@ -14,18 +14,18 @@ module.exports = {
   fontWeight: string,
   letterSpacing: numberOrString,
   lineHeight: numberOrString,
-  textAlign: oneOf([ 'center', 'inherit', 'justify', 'justify-all', 'left', 'right' ]),
-  textAlignVertical: oneOf([ 'auto', 'bottom', 'center', 'top' ]),
+  textAlign: oneOf(['center', 'inherit', 'justify', 'justify-all', 'left', 'right']),
+  textAlignVertical: oneOf(['auto', 'bottom', 'center', 'top']),
   textDecorationLine: string,
   /* @platform web */
   textOverflow: string,
   /* @platform web */
   textShadow: string,
   /* @platform web */
-  textTransform: oneOf([ 'capitalize', 'lowercase', 'none', 'uppercase' ]),
+  textTransform: oneOf(['capitalize', 'lowercase', 'none', 'uppercase']),
   /* @platform web */
   whiteSpace: string,
   /* @platform web */
   wordWrap: string,
-  writingDirection: oneOf([ 'auto', 'ltr', 'rtl' ])
+  writingDirection: oneOf(['auto', 'ltr', 'rtl'])
 }

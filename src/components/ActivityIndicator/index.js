@@ -48,6 +48,16 @@ class ActivityIndicator extends Component {
     this._manageAnimation()
   }
 
+  _manageAnimation() {
+    if (this._player) {
+      if (this.props.animating) {
+        this._player.play()
+      } else {
+        this._player.cancel()
+      }
+    }
+  }
+
   render() {
     const {
       animating,
@@ -59,7 +69,7 @@ class ActivityIndicator extends Component {
     } = this.props
 
     return (
-      <View {...other} style={[ styles.container, style ]}>
+      <View {...other} style={[styles.container, style]}>
         <View
           ref={(c) => { this._indicatorRef = c }}
           style={[
@@ -70,16 +80,6 @@ class ActivityIndicator extends Component {
         />
       </View>
     )
-  }
-
-  _manageAnimation() {
-    if (this._player) {
-      if (this.props.animating) {
-        this._player.play()
-      } else {
-        this._player.cancel()
-      }
-    }
   }
 }
 

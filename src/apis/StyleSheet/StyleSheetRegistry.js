@@ -18,17 +18,17 @@ let uniqueID = 0
 
 const getCacheKey = (prop, value) => `${prop}:${value}`
 
-const normalizeStyle = (style) => {
-  return processTransform(expandStyle(flattenStyle(style)))
-}
+const normalizeStyle = style =>
+  processTransform(expandStyle(flattenStyle(style)))
 
-const createCssDeclarations = (style) => {
-  return Object.keys(style).map((prop) => {
+const createCssDeclarations = (style) =>
+  Object.keys(style).map((prop) => {
     const property = hyphenate(prop)
     const value = style[prop]
     return `${property}:${value};`
-  }).sort().join('')
-}
+  })
+    .sort()
+    .join('')
 
 class StyleSheetRegistry {
   /* for testing */
@@ -38,7 +38,7 @@ class StyleSheetRegistry {
   }
 
   static renderToString() {
-    let str = `/* ${uniqueID} unique declarations */`
+    let str = `/* ${uniqueID} unique declarations */` // eslint-disable-line prefer-const
 
     return Object.keys(stylesCache).reduce((str, key) => {
       const id = stylesCache[key].id
@@ -77,19 +77,19 @@ class StyleSheetRegistry {
   static getStyleAsNativeProps(styleSheetObject, canUseCSS = false) {
     const classList = []
     const normalizedStyle = normalizeStyle(styleSheetObject)
-    let style = {}
+    const style = {}
 
-    for (const prop in normalizedStyle) {
+    Object.keys(normalizedStyle).forEach(prop => {
       const value = normalizedStyle[prop]
       const cacheKey = getCacheKey(prop, value)
-      let selector = stylesCache[cacheKey] && stylesCache[cacheKey].id || predefinedClassNames[cacheKey]
+      const selector = stylesCache[cacheKey] && stylesCache[cacheKey].id || predefinedClassNames[cacheKey]
 
       if (selector && canUseCSS) {
         classList.push(selector)
       } else {
         style[prop] = normalizedStyle[prop]
       }
-    }
+    })
 
     return {
       className: classList.join(' '),

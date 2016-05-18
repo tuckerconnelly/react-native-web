@@ -1,19 +1,19 @@
 import normalizeValue from './normalizeValue'
 
 const styleShortHands = {
-  borderColor: [ 'borderTopColor', 'borderRightColor', 'borderBottomColor', 'borderLeftColor' ],
-  borderRadius: [ 'borderTopLeftRadius', 'borderTopRightRadius', 'borderBottomRightRadius', 'borderBottomLeftRadius' ],
-  borderStyle: [ 'borderTopStyle', 'borderRightStyle', 'borderBottomStyle', 'borderLeftStyle' ],
-  borderWidth: [ 'borderTopWidth', 'borderRightWidth', 'borderBottomWidth', 'borderLeftWidth' ],
-  margin: [ 'marginTop', 'marginRight', 'marginBottom', 'marginLeft' ],
-  marginHorizontal: [ 'marginRight', 'marginLeft' ],
-  marginVertical: [ 'marginTop', 'marginBottom' ],
-  overflow: [ 'overflowX', 'overflowY' ],
-  padding: [ 'paddingTop', 'paddingRight', 'paddingBottom', 'paddingLeft' ],
-  paddingHorizontal: [ 'paddingRight', 'paddingLeft' ],
-  paddingVertical: [ 'paddingTop', 'paddingBottom' ],
-  textDecorationLine: [ 'textDecoration' ],
-  writingDirection: [ 'direction' ]
+  borderColor: ['borderTopColor', 'borderRightColor', 'borderBottomColor', 'borderLeftColor'],
+  borderRadius: ['borderTopLeftRadius', 'borderTopRightRadius', 'borderBottomRightRadius', 'borderBottomLeftRadius'],
+  borderStyle: ['borderTopStyle', 'borderRightStyle', 'borderBottomStyle', 'borderLeftStyle'],
+  borderWidth: ['borderTopWidth', 'borderRightWidth', 'borderBottomWidth', 'borderLeftWidth'],
+  margin: ['marginTop', 'marginRight', 'marginBottom', 'marginLeft'],
+  marginHorizontal: ['marginRight', 'marginLeft'],
+  marginVertical: ['marginTop', 'marginBottom'],
+  overflow: ['overflowX', 'overflowY'],
+  padding: ['paddingTop', 'paddingRight', 'paddingBottom', 'paddingLeft'],
+  paddingHorizontal: ['paddingRight', 'paddingLeft'],
+  paddingVertical: ['paddingTop', 'paddingBottom'],
+  textDecorationLine: ['textDecoration'],
+  writingDirection: ['direction']
 }
 
 /**
@@ -30,7 +30,7 @@ const sortProps = (propsArray) => propsArray.sort((a, b) => {
   } else if (expandedB && expandedB.indexOf(a) > -1) {
     return 1
   }
-  return a < b ? -1 : a > b ? 1 : 0
+  return a < b ? -1 : a > b ? 1 : 0 // eslint-disable-line no-nested-ternary
 })
 
 /**

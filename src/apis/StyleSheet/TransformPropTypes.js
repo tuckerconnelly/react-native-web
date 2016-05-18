@@ -8,7 +8,7 @@
 import { PropTypes } from 'react'
 
 const ArrayOfNumberPropType = PropTypes.arrayOf(PropTypes.number)
-const numberOrString = PropTypes.oneOfType([ PropTypes.number, PropTypes.string ])
+const numberOrString = PropTypes.oneOfType([PropTypes.number, PropTypes.string])
 
 const TransformMatrixPropType = function (
   props : Object,

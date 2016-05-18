@@ -84,7 +84,7 @@ class AsyncStorage {
     const promises = keys.map((key) => AsyncStorage.getItem(key))
 
     return Promise.all(promises).then(
-      (result) => Promise.resolve(result.map((value, i) => [ keys[i], value ])),
+      (result) => Promise.resolve(result.map((value, i) => [keys[i], value])),
       (error) => Promise.reject(error)
     )
   }

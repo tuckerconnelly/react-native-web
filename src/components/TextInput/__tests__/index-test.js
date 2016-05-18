@@ -68,19 +68,19 @@ suite('components/TextInput', () => {
     // default
     let input = findInput(utils.renderToDOM(<TextInput />))
     assert.equal(input.getAttribute('type'), undefined)
-    input = findInput(utils.renderToDOM(<TextInput keyboardType='default' />))
+    input = findInput(utils.renderToDOM(<TextInput keyboardType="default" />))
     assert.equal(input.getAttribute('type'), undefined)
     // email-address
-    input = findInput(utils.renderToDOM(<TextInput keyboardType='email-address' />))
+    input = findInput(utils.renderToDOM(<TextInput keyboardType="email-address" />))
     assert.equal(input.getAttribute('type'), 'email')
     // numeric
-    input = findInput(utils.renderToDOM(<TextInput keyboardType='numeric' />))
+    input = findInput(utils.renderToDOM(<TextInput keyboardType="numeric" />))
     assert.equal(input.getAttribute('type'), 'number')
     // phone-pad
-    input = findInput(utils.renderToDOM(<TextInput keyboardType='phone-pad' />))
+    input = findInput(utils.renderToDOM(<TextInput keyboardType="phone-pad" />))
     assert.equal(input.getAttribute('type'), 'tel')
     // url
-    input = findInput(utils.renderToDOM(<TextInput keyboardType='url' />))
+    input = findInput(utils.renderToDOM(<TextInput keyboardType="url" />))
     assert.equal(input.getAttribute('type'), 'url')
   })
 
@@ -174,7 +174,7 @@ suite('components/TextInput', () => {
   test('prop "onLayout"')
 
   test('prop "onSelectionChange"', (done) => {
-    const input = findInput(utils.renderAndInject(<TextInput defaultValue='12345' onSelectionChange={onSelectionChange} />))
+    const input = findInput(utils.renderAndInject(<TextInput defaultValue="12345" onSelectionChange={onSelectionChange} />))
     ReactTestUtils.Simulate.select(input, { target: { selectionStart: 0, selectionEnd: 3 } })
     function onSelectionChange(e) {
       assert.equal(e.selectionEnd, 3)
@@ -195,7 +195,7 @@ suite('components/TextInput', () => {
     let result = findShallowPlaceholder(utils.shallowRender(<TextInput placeholder={placeholder} />))
     assert.equal(StyleSheet.flatten(result.props.style).color, 'darkgray')
 
-    result = findShallowPlaceholder(utils.shallowRender(<TextInput placeholder={placeholder} placeholderTextColor='red' />))
+    result = findShallowPlaceholder(utils.shallowRender(<TextInput placeholder={placeholder} placeholderTextColor="red" />))
     assert.equal(StyleSheet.flatten(result.props.style).color, 'red')
   })
 

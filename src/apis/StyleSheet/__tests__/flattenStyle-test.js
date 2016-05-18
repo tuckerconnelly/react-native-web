@@ -14,24 +14,24 @@ import flattenStyle from '../flattenStyle'
 
 suite('apis/StyleSheet/flattenStyle', () => {
   test('should merge style objects', () => {
-    const style1 = {opacity: 1}
-    const style2 = {order: 2}
+    const style1 = { opacity: 1 }
+    const style2 = { order: 2 }
     const flatStyle = flattenStyle([style1, style2])
     assert.equal(flatStyle.opacity, 1)
     assert.equal(flatStyle.order, 2)
   })
 
   test('should override style properties', () => {
-    const style1 = {backgroundColor: '#000', order: 1}
-    const style2 = {backgroundColor: '#023c69', order: null}
+    const style1 = { backgroundColor: '#000', order: 1 }
+    const style2 = { backgroundColor: '#023c69', order: null }
     const flatStyle = flattenStyle([style1, style2])
     assert.equal(flatStyle.backgroundColor, '#023c69')
     assert.strictEqual(flatStyle.order, null)
   })
 
   test('should overwrite properties with `undefined`', () => {
-    const style1 = {backgroundColor: '#000'}
-    const style2 = {backgroundColor: undefined}
+    const style1 = { backgroundColor: '#000' }
+    const style2 = { backgroundColor: undefined }
     const flatStyle = flattenStyle([style1, style2])
     assert.strictEqual(flatStyle.backgroundColor, undefined)
   })
@@ -41,9 +41,9 @@ suite('apis/StyleSheet/flattenStyle', () => {
   })
 
   test('should recursively flatten arrays', () => {
-    const style1 = {order: 2}
-    const style2 = {opacity: 1}
-    const style3 = {order: 3}
+    const style1 = { order: 2 }
+    const style2 = { opacity: 1 }
+    const style3 = { order: 3 }
     const flatStyle = flattenStyle([null, [], [style1, style2], style3])
     assert.equal(flatStyle.order, 3)
     assert.equal(flatStyle.opacity, 1)

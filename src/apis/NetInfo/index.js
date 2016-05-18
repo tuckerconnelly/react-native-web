@@ -15,7 +15,7 @@ const connection = ExecutionEnvironment.canUseDOM && (
   window.navigator.webkitConnection
 )
 
-const eventTypes = [ 'change' ]
+const eventTypes = ['change']
 
 /**
  * Navigator online: https://developer.mozilla.org/en-US/docs/Web/API/NavigatorOnLine/onLine
@@ -48,7 +48,7 @@ const NetInfo = {
       try {
         resolve(connection.type)
       } catch (err) {
-        resolve('unknown')
+        reject('unknown')
       }
     })
   },
@@ -75,7 +75,7 @@ const NetInfo = {
         try {
           resolve(window.navigator.onLine)
         } catch (err) {
-          resolve(true)
+          reject(true)
         }
       })
     }

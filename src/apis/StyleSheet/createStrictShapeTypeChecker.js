@@ -37,7 +37,7 @@ module.exports = function createStrictShapeTypeChecker(shapeTypes) {
     // We need to check all keys in case some are required but missing from
     // props.
     const allKeys = { ...props[propName], ...shapeTypes }
-    for (const key in allKeys) {
+    Object.keys(allKeys).forEach(key => {
       const checker = shapeTypes[key]
       if (!checker) {
         invariant(
@@ -54,7 +54,7 @@ module.exports = function createStrictShapeTypeChecker(shapeTypes) {
           error.message + `\nBad object: ` + JSON.stringify(props[propName], null, '  ')
         )
       }
-    }
+    })
   }
 
   function chainedCheckType(

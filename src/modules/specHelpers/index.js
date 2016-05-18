@@ -6,7 +6,7 @@ import ReactDOM from 'react-dom'
 import ReactTestUtils from 'react-addons-test-utils'
 
 export const assertProps = {
-  style: function (Component, props) {
+  style(Component, props) {
     let shallow
     // default styles
     shallow = shallowRender(<Component {...props} />)

@@ -56,6 +56,20 @@ class View extends Component {
     setTimeout(onLayout)
   }
 
+  /**
+   * React Native expects `pageX` and `pageY` to be on the `nativeEvent`, but
+   * React doesn't include them for touch events.
+   */
+  _normalizeEventForHandler(handler) {
+    return (e) => {
+      const { pageX } = e.nativeEvent
+      if (pageX === undefined) {
+        e.nativeEvent = normalizeNativeEvent(e.nativeEvent)
+      }
+      handler && handler(e)
+    }
+  }
+
   render() {
     const {
       className,
@@ -86,20 +100,6 @@ class View extends Component {
         ]}
       />
     )
-  }
-
-  /**
-   * React Native expects `pageX` and `pageY` to be on the `nativeEvent`, but
-   * React doesn't include them for touch events.
-   */
-  _normalizeEventForHandler(handler) {
-    return (e) => {
-      const { pageX } = e.nativeEvent
-      if (pageX === undefined) {
-        e.nativeEvent = normalizeNativeEvent(e.nativeEvent)
-      }
-      handler && handler(e)
-    }
   }
 }
 

@@ -1,7 +1,7 @@
 import invariant from 'fbjs/lib/invariant'
 
 const listeners = {}
-const eventTypes = [ 'change' ]
+const eventTypes = ['change']
 
 class AppState {
   static get currentState() {

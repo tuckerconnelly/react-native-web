@@ -13,11 +13,11 @@ const _measureLayout = (node, relativeToNativeNode, callback) => {
 
 const UIManager = {
   blur(node) {
-    try { node.blur() } catch (err) {}
+    try { node.blur() } catch (err) {} // eslint-disable-line no-empty
   },
 
   focus(node) {
-    try { node.focus() } catch (err) {}
+    try { node.focus() } catch (err) {} // eslint-disable-line no-empty
   },
 
   measure(node, callback) {
@@ -35,7 +35,7 @@ const UIManager = {
   },
 
   updateView(node, props) {
-    for (const prop in props) {
+    Object.keys(props).forEach(prop => {
       let nativeProp
       const value = props[prop]
 
@@ -45,12 +45,13 @@ const UIManager = {
           CSSPropertyOperations.setValueForStyles(node, processTransform(flattenStyle(value)))
           break
         case 'class':
-        case 'className':
+        case 'className': {
           nativeProp = 'class'
           // prevent class names managed by React Native from being replaced
           const className = node.getAttribute(nativeProp) + ' ' + value
           node.setAttribute(nativeProp, className)
           break
+        }
         case 'text':
         case 'value':
           // native platforms use `text` prop to replace text input value
@@ -59,7 +60,7 @@ const UIManager = {
         default:
           node.setAttribute(prop, value)
       }
-    }
+    })
   }
 }
 

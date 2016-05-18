@@ -20,7 +20,7 @@ suite('apis/StyleSheet/processTransform', () => {
 
   test('transformMatrix', () => {
     const style = {
-      transformMatrix: [ 1, 2, 3, 4, 5, 6 ]
+      transformMatrix: [1, 2, 3, 4, 5, 6]
     }
 
     assert.deepEqual(

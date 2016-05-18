@@ -120,11 +120,11 @@ const NativeMethodsMixin = {
  * In the future, we should cleanup callbacks by cancelling them instead of
  * using this.
  */
-const mountSafeCallback = function (context: Component, callback: ?Function): any {
+const mountSafeCallback = function (context: Component, callback: ?Function, ...other): any {
   if (!callback || !context._isMounted) {
     return
   }
-  return callback.apply(context, arguments)
+  return callback.call(context, other)
 }
 
 module.exports = NativeMethodsMixin
