@@ -4,6 +4,7 @@ import NativeMethodsDecorator from '../../modules/NativeMethodsDecorator'
 import normalizeNativeEvent from '../../apis/PanResponder/normalizeNativeEvent'
 import CoreComponent from '../CoreComponent'
 import React, { Component, PropTypes } from 'react'
+import ReactDOM from 'react-dom'
 
 @NativeMethodsDecorator
 class View extends Component {
@@ -51,9 +52,38 @@ class View extends Component {
   }
 
   componentDidMount() {
+    this.handleLayout()
+    // NOTE This doesn't work exactly like react-native.
+    //
+    // If a parent's forceUpdate is called in RN, onLayout
+    // will be called again even if nothing changes.
+    //
+    // With the approach below, if the DOM doesn't change on
+    // forceUpdate, onLayout won't be called again
+    this.observer.observe(ReactDOM.findDOMNode(this), {
+      attributes: true,
+      childList: true,
+      characterData: true,
+      subtree: true,
+    })
+  }
+
+  componentWillUnmount() {
+    this.observer.disconnect()
+  }
+
+  observer = new MutationObserver(() => this.handleLayout)
+
+  handleLayout() {
     const { onLayout } = this.props
     if (!onLayout) return
-    setTimeout(onLayout)
+    const {
+      offsetLeft: x,
+      offsetTop: y,
+      offsetWidth: width,
+      offsetHeight: height,
+    } = ReactDOM.findDOMNode(this)
+    setTimeout(() => onLayout({ nativeEvent: { layout: { width, height, x, y } } }))
   }
 
   /**
@@ -83,6 +113,7 @@ class View extends Component {
     return (
       <CoreComponent
         {...other}
+        ref="view"
         className={classNames('rnw-View', className)}
         onClick={this._handleClick}
         onClickCapture={this._normalizeEventForHandler(this.props.onClickCapture)}
