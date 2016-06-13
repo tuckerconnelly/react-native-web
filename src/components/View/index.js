@@ -1,4 +1,5 @@
 import classNames from 'classnames'
+import { debounce } from 'lodash'
 
 import NativeMethodsDecorator from '../../modules/NativeMethodsDecorator'
 import normalizeNativeEvent from '../../apis/PanResponder/normalizeNativeEvent'
@@ -53,28 +54,13 @@ class View extends Component {
 
   componentDidMount() {
     this.handleLayout()
-    // NOTE This doesn't work exactly like react-native.
-    //
-    // If a parent's forceUpdate is called in RN, onLayout
-    // will be called again even if nothing changes.
-    //
-    // With the approach below, if the DOM doesn't change on
-    // forceUpdate, onLayout won't be called again
-    this.observer.observe(ReactDOM.findDOMNode(this), {
-      attributes: true,
-      childList: true,
-      characterData: true,
-      subtree: true,
-    })
   }
 
-  componentWillUnmount() {
-    this.observer.disconnect()
-  }
+  // This isn't working--after a compnent updates, it doesn't get called.
+  // Animated components are constantly updated though, so causes a huge performance
+  // dip if you call this on didUpdate.
 
-  observer = new MutationObserver(() => this.handleLayout)
-
-  handleLayout() {
+  handleLayout = debounce(() => {
     const { onLayout } = this.props
     if (!onLayout) return
     const {
@@ -84,7 +70,7 @@ class View extends Component {
       offsetHeight: height,
     } = ReactDOM.findDOMNode(this)
     setTimeout(() => onLayout({ nativeEvent: { layout: { width, height, x, y } } }))
-  }
+  }, 20)
 
   /**
    * React Native expects `pageX` and `pageY` to be on the `nativeEvent`, but

@@ -18,6 +18,7 @@ import StyleSheet from './apis/StyleSheet'
 import UIManager from './apis/UIManager'
 
 // components
+import CoreComponent from './components/CoreComponent'
 import ActivityIndicator from './components/ActivityIndicator'
 import Image from './components/Image'
 import ListView from './components/ListView'
@@ -61,6 +62,7 @@ const ReactNative = {
   UIManager,
 
   // components
+  CoreComponent,
   ActivityIndicator,
   Image,
   ListView,

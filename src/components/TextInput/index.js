@@ -2,6 +2,7 @@ import NativeMethodsDecorator from '../../modules/NativeMethodsDecorator'
 import CoreComponent from '../CoreComponent'
 import React, { Component, PropTypes } from 'react'
 import ReactDOM from 'react-dom'
+import StyleSheet from '../../apis/StyleSheet'
 import Text from '../Text'
 import TextareaAutosize from 'react-textarea-autosize'
 import TextInputState from './TextInputState'
@@ -55,15 +56,15 @@ class TextInput extends Component {
     this.refs.input.setNativeProps(props)
   }
 
-  blur() {
+  blur = () => {
     TextInputState.blurTextInput(ReactDOM.findDOMNode(this.refs.input))
   }
 
-  clear() {
+  clear = () => {
     this.setNativeProps({ text: '' })
   }
 
-  focus() {
+  focus = () => {
     TextInputState.focusTextInput(ReactDOM.findDOMNode(this.refs.input))
   }
 
@@ -198,7 +199,7 @@ class TextInput extends Component {
         testID={testID}
       >
         <View className="rnw-TextInput-wrapper">
-          <CoreComponent {...props} ref="input" />
+          <CoreComponent {...props} style={styles.input} ref="input" />
           {placeholder && this.state.showPlaceholder && <View
             className="rnw-TextInput-placeholder"
             pointerEvents="none"
@@ -218,5 +219,11 @@ class TextInput extends Component {
     )
   }
 }
+
+const styles = StyleSheet.create({
+  input: {
+    textAlign: 'inherit'
+  },
+})
 
 module.exports = TextInput
