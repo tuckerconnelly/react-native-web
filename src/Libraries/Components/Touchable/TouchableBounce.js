@@ -12,11 +12,11 @@
  */
 'use strict';
 
-var Animated = require('../../apis/Animated');
-var EdgeInsetsPropType = require('../../apis/StyleSheet/EdgeInsetsPropType');
-var NativeMethodsMixin = require('../../modules/NativeMethodsMixin');
+var Animated = require('../../Animated');
+var EdgeInsetsPropType = require('../../StyleSheet/EdgeInsetsPropType');
+var NativeMethodsMixin = require('../../../modules/NativeMethodsMixin');
 var React = require('react');
-var StyleSheet = require('../../apis/StyleSheet');
+var StyleSheet = require('../../StyleSheet');
 var Touchable = require('./Touchable');
 
 type Event = Object;

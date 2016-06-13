@@ -1,8 +1,8 @@
 import classNames from 'classnames'
 import { debounce } from 'lodash'
 
-import NativeMethodsDecorator from '../../modules/NativeMethodsDecorator'
-import normalizeNativeEvent from '../../apis/PanResponder/normalizeNativeEvent'
+import NativeMethodsDecorator from '../../../modules/NativeMethodsDecorator'
+import normalizeNativeEvent from '../../PanResponder/normalizeNativeEvent'
 import CoreComponent from '../CoreComponent'
 import React, { Component, PropTypes } from 'react'
 import ReactDOM from 'react-dom'

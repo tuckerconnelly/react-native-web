@@ -14,16 +14,16 @@
 
 // Note (avik): add @flow when Flow supports spread properties in propTypes
 
-var Animated = require('../../apis/Animated');
-var NativeMethodsMixin = require('../../modules/NativeMethodsMixin');
+var Animated = require('../../Animated');
+var NativeMethodsMixin = require('../../../modules/NativeMethodsMixin');
 var React = require('react');
-var StyleSheet = require('../../apis/StyleSheet');
+var StyleSheet = require('../../StyleSheet');
 var TimerMixin = require('react-timer-mixin');
 var Touchable = require('./Touchable');
 var TouchableWithoutFeedback = require('./TouchableWithoutFeedback');
 
 var ensurePositiveDelayProps = require('./ensurePositiveDelayProps');
-var flattenStyle = require('../../apis/StyleSheet/flattenStyle');
+var flattenStyle = require('../../StyleSheet/flattenStyle');
 
 type Event = Object;
 

@@ -6,9 +6,9 @@
  * @flow
  */
 
-import Platform from '../../apis/Platform'
+import Platform from '../../Platform'
 import React, { Component, PropTypes } from 'react'
-import StyleSheet from '../../apis/StyleSheet'
+import StyleSheet from '../../StyleSheet'
 import View from '../View'
 
 let _portalRef: any

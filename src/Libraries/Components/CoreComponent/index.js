@@ -1,6 +1,6 @@
-import NativeMethodsDecorator from '../../modules/NativeMethodsDecorator'
+import NativeMethodsDecorator from '../../../modules/NativeMethodsDecorator'
 import React, { Component, PropTypes } from 'react'
-import StyleSheet from '../../apis/StyleSheet'
+import StyleSheet from '../../StyleSheet'
 
 const roleComponents = {
   article: 'article',

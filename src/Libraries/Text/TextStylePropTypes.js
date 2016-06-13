@@ -1,6 +1,6 @@
 import { PropTypes } from 'react'
-import ColorPropType from '../../apis/StyleSheet/ColorPropType'
-import ViewStylePropTypes from '../View/ViewStylePropTypes'
+import ColorPropType from '../StyleSheet/ColorPropType'
+import ViewStylePropTypes from '../Components/View/ViewStylePropTypes'
 
 const { number, oneOf, oneOfType, string } = PropTypes
 const numberOrString = oneOfType([number, string])

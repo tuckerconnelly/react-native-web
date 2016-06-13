@@ -1,49 +1,49 @@
 import React from 'react'
 
-import './apis/PanResponder/injectResponderEventPlugin'
+import './Libraries/PanResponder/injectResponderEventPlugin'
 
 // apis
-import Animated from './apis/Animated'
-import AppRegistry from './apis/AppRegistry'
-import AppState from './apis/AppState'
-import AsyncStorage from './apis/AsyncStorage'
-import Dimensions from './apis/Dimensions'
-import Easing from './apis/Easing'
-import InteractionManager from './apis/InteractionManager'
-import NetInfo from './apis/NetInfo'
-import PanResponder from './apis/PanResponder'
-import PixelRatio from './apis/PixelRatio'
-import Platform from './apis/Platform'
-import StyleSheet from './apis/StyleSheet'
-import UIManager from './apis/UIManager'
+import Animated from './Libraries/Animated'
+import AppRegistry from './Libraries/AppRegistry'
+import AppState from './Libraries/AppState'
+import AsyncStorage from './Libraries/AsyncStorage'
+import Dimensions from './Libraries/Dimensions'
+import Easing from './Libraries/Easing'
+import InteractionManager from './Libraries/InteractionManager'
+import NetInfo from './Libraries/NetInfo'
+import PanResponder from './Libraries/PanResponder'
+import PixelRatio from './Libraries/PixelRatio'
+import Platform from './Libraries/Platform'
+import StyleSheet from './Libraries/StyleSheet'
+import UIManager from './Libraries/UIManager'
 
 // components
-import CoreComponent from './components/CoreComponent'
-import ActivityIndicator from './components/ActivityIndicator'
-import Image from './components/Image'
-import ListView from './components/ListView'
-import Portal from './components/Portal'
-import ScrollView from './components/ScrollView'
-import Text from './components/Text'
-import TextInput from './components/TextInput'
-import Touchable from './components/Touchable/Touchable'
-import TouchableBounce from './components/Touchable/TouchableBounce'
-import TouchableHighlight from './components/Touchable/TouchableHighlight'
-import TouchableOpacity from './components/Touchable/TouchableOpacity'
-import TouchableWithoutFeedback from './components/Touchable/TouchableWithoutFeedback'
-import View from './components/View'
+import CoreComponent from './Libraries/Components/CoreComponent'
+import ActivityIndicator from './Libraries/Components/ActivityIndicator'
+import Image from './Libraries/Image'
+import ListView from './Libraries/Components/ListView'
+import Portal from './Libraries/Components/Portal'
+import ScrollView from './Libraries/Components/ScrollView'
+import Text from './Libraries/Text'
+import TextInput from './Libraries/Components/TextInput'
+import Touchable from './Libraries/Components/Touchable/Touchable'
+import TouchableBounce from './Libraries/Components/Touchable/TouchableBounce'
+import TouchableHighlight from './Libraries/Components/Touchable/TouchableHighlight'
+import TouchableOpacity from './Libraries/Components/Touchable/TouchableOpacity'
+import TouchableWithoutFeedback from './Libraries/Components/Touchable/TouchableWithoutFeedback'
+import View from './Libraries/Components/View'
 
 // modules
 import NativeModules from './modules/NativeModules'
 
 // propTypes
 
-import ColorPropType from './apis/StyleSheet/ColorPropType'
-import EdgeInsetsPropType from './apis/StyleSheet/EdgeInsetsPropType'
-import PointPropType from './apis/StyleSheet/PointPropType'
+import ColorPropType from './Libraries/StyleSheet/ColorPropType'
+import EdgeInsetsPropType from './Libraries/StyleSheet/EdgeInsetsPropType'
+import PointPropType from './Libraries/StyleSheet/PointPropType'
 
 // other
-import BaseStyles from './components/BaseStyles'
+import BaseStyles from './Libraries/Components/BaseStyles'
 
 const ReactNative = {
   // apis

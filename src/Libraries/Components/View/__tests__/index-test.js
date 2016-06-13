@@ -1,9 +1,9 @@
 /* eslint-env mocha */
 
-import * as utils from '../../../modules/specHelpers'
+import * as utils from '../../../../modules/specHelpers'
 import assert from 'assert'
 import React from 'react'
-import StyleSheet from '../../../apis/StyleSheet'
+import StyleSheet from '../../StyleSheet'
 
 import View from '../'
 

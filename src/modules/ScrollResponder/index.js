@@ -12,15 +12,15 @@
  */
 'use strict';
 
-var Dimensions = require('../../apis/Dimensions');
-var Platform = require('../../apis/Platform');
+var Dimensions = require('../../Libraries/Dimensions');
+var Platform = require('../../Libraries/Platform');
 var React = require('react');
 var ReactDOM = require('react-dom');
 // var Subscribable = require('../Subscribable');
-var TextInputState = require('../../components/TextInput/TextInputState');
-var UIManager = require('../../apis/UIManager');
+var TextInputState = require('../../Libraries/Components/TextInput/TextInputState');
+var UIManager = require('../../Libraries/UIManager');
 
-// var { ScrollViewManager } = require('../../modules/NativeModules');
+// var { ScrollViewManager } = require('../../../modules/NativeModules');
 
 var invariant = require('fbjs/lib/invariant');
 var warning = require('fbjs/lib/warning');

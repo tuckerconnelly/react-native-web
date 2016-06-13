@@ -1,8 +1,8 @@
 import { PropTypes } from 'react'
-import BorderPropTypes from '../../apis/StyleSheet/BorderPropTypes'
-import ColorPropType from '../../apis/StyleSheet/ColorPropType'
-import LayoutPropTypes from '../../apis/StyleSheet/LayoutPropTypes'
-import TransformPropTypes from '../../apis/StyleSheet/TransformPropTypes'
+import BorderPropTypes from '../../StyleSheet/BorderPropTypes'
+import ColorPropType from '../../StyleSheet/ColorPropType'
+import LayoutPropTypes from '../../StyleSheet/LayoutPropTypes'
+import TransformPropTypes from '../../StyleSheet/TransformPropTypes'
 
 const { number, oneOf, string } = PropTypes
 const autoOrHiddenOrVisible = oneOf(['auto', 'hidden', 'visible'])

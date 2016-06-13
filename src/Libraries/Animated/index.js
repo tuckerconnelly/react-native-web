@@ -7,9 +7,9 @@
  */
 
 import AnimatedImplementation from './AnimatedImplementation'
-import Image from '../../components/Image'
-import Text from '../../components/Text'
-import View from '../../components/View'
+import Image from '../Image'
+import Text from '../Text'
+import View from '../Components/View'
 
 module.exports = {
   ...AnimatedImplementation,

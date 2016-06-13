@@ -7,9 +7,9 @@
  */
 
 import { PropTypes } from 'react'
-import ImageStylePropTypes from '../../components/Image/ImageStylePropTypes'
-import TextStylePropTypes from '../../components/Text/TextStylePropTypes'
-import ViewStylePropTypes from '../../components/View/ViewStylePropTypes'
+import ImageStylePropTypes from '../Image/ImageStylePropTypes'
+import TextStylePropTypes from '../Text/TextStylePropTypes'
+import ViewStylePropTypes from '../Components/View/ViewStylePropTypes'
 import invariant from 'fbjs/lib/invariant'
 
 class StyleSheetValidation {

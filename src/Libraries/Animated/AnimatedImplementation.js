@@ -21,7 +21,7 @@ import invariant from 'fbjs/lib/invariant';
 import React from 'react';
 import Set from './polyfills/Set';
 import SpringConfig from './SpringConfig';
-import ViewStylePropTypes from '../../components/View/ViewStylePropTypes';
+import ViewStylePropTypes from '../Components/View/ViewStylePropTypes';
 
 import type { InterpolationConfigType } from './Interpolation';
 /* @edit end */

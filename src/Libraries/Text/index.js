@@ -1,7 +1,7 @@
 import classNames from 'classnames'
 
 import NativeMethodsDecorator from '../../modules/NativeMethodsDecorator'
-import CoreComponent from '../CoreComponent'
+import CoreComponent from '../Components/CoreComponent'
 import React, { Component, PropTypes } from 'react'
 
 @NativeMethodsDecorator

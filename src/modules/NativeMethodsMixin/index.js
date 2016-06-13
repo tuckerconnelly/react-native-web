@@ -8,7 +8,7 @@
 
 import { Component } from 'react'
 import ReactDOM from 'react-dom'
-import UIManager from '../../apis/UIManager'
+import UIManager from '../../Libraries/UIManager'
 
 type MeasureInWindowOnSuccessCallback = (
   x: number,

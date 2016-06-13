@@ -1,8 +1,8 @@
-import Portal from '../../components/Portal'
+import Portal from '../Components/Portal'
 import React, { Component, PropTypes } from 'react'
 import ReactDOM from 'react-dom'
 import StyleSheet from '../StyleSheet'
-import View from '../../components/View'
+import View from '../Components/View'
 
 class ReactNativeApp extends Component {
   static propTypes = {

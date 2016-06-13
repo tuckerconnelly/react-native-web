@@ -6,13 +6,13 @@
  * @flow
  */
 
-import dismissKeyboard from '../../modules/dismissKeyboard'
+import dismissKeyboard from '../../../modules/dismissKeyboard'
 import invariant from 'fbjs/lib/invariant'
 import React, { Component, PropTypes } from 'react'
 import ReactDOM from 'react-dom'
-import ScrollResponder from '../../modules/ScrollResponder'
+import ScrollResponder from '../../../modules/ScrollResponder'
 import ScrollViewBase from './ScrollViewBase'
-import StyleSheet from '../../apis/StyleSheet'
+import StyleSheet from '../../StyleSheet'
 import View from '../View'
 
 const INNERVIEW = 'InnerScrollView'

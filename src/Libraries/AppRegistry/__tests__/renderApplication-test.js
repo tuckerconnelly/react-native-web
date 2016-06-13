@@ -2,7 +2,7 @@
 
 import assert from 'assert'
 import React from 'react'
-import { elementId } from '../../StyleSheet'
+import { elementId } from '../StyleSheet'
 import { prerenderApplication } from '../renderApplication'
 
 const component = () => <div />

@@ -1,7 +1,7 @@
-import NativeMethodsDecorator from '../../modules/NativeMethodsDecorator'
+import NativeMethodsDecorator from '../../../modules/NativeMethodsDecorator'
 import React, { Component, PropTypes } from 'react'
 import ReactDOM from 'react-dom'
-import StyleSheet from '../../apis/StyleSheet'
+import StyleSheet from '../../StyleSheet'
 import View from '../View'
 
 const GRAY = '#999999'

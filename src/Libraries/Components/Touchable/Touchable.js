@@ -11,7 +11,7 @@ var BoundingDimensions = require('./BoundingDimensions');
 var Position = require('./Position');
 var TouchEventUtils = require('fbjs/lib/TouchEventUtils');
 var keyMirror = require('fbjs/lib/keyMirror');
-var UIManager = require('../../apis/UIManager');
+var UIManager = require('../../UIManager');
 /* @edit end */
 
 /**

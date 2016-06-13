@@ -1,9 +1,9 @@
 /* eslint-env mocha */
 
-import * as utils from '../../../modules/specHelpers'
+import * as utils from '../../../../modules/specHelpers'
 import assert from 'assert'
 import React from 'react'
-import flattenStyle from '../../../apis/StyleSheet/flattenStyle'
+import flattenStyle from '../../StyleSheet/flattenStyle'
 
 import Image from '../'
 

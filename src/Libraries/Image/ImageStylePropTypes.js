@@ -1,7 +1,7 @@
 import { PropTypes } from 'react'
-import ColorPropType from '../../apis/StyleSheet/ColorPropType'
-import LayoutPropTypes from '../../apis/StyleSheet/LayoutPropTypes'
-import TransformPropTypes from '../../apis/StyleSheet/TransformPropTypes'
+import ColorPropType from '../StyleSheet/ColorPropType'
+import LayoutPropTypes from '../StyleSheet/LayoutPropTypes'
+import TransformPropTypes from '../StyleSheet/TransformPropTypes'
 import ImageResizeMode from './ImageResizeMode'
 
 const hiddenOrVisible = PropTypes.oneOf(['hidden', 'visible'])

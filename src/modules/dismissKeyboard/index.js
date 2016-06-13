@@ -1,4 +1,4 @@
-import TextInputState from '../../components/TextInput/TextInputState'
+import TextInputState from '../../Libraries/Components/TextInput/TextInputState'
 
 const dismissKeyboard = () => {
   TextInputState.blurTextInput(TextInputState.currentlyFocusedField())

@@ -6,7 +6,7 @@
  * @flow
  */
 
-import UIManager from '../../apis/UIManager'
+import UIManager from '../../UIManager'
 
 /**
  * This class is responsible for coordinating the "focused"
