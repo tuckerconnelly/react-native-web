@@ -1,11 +1,9 @@
 import classNames from 'classnames'
-import { debounce } from 'lodash'
 
 import NativeMethodsDecorator from '../../../modules/NativeMethodsDecorator'
 import normalizeNativeEvent from '../../PanResponder/normalizeNativeEvent'
 import CoreComponent from '../CoreComponent'
 import React, { Component, PropTypes } from 'react'
-import ReactDOM from 'react-dom'
 
 @NativeMethodsDecorator
 class View extends Component {
@@ -18,7 +16,6 @@ class View extends Component {
     className: PropTypes.string,
     onClick: PropTypes.func,
     onClickCapture: PropTypes.func,
-    onLayout: PropTypes.func,
     onMoveShouldSetResponder: PropTypes.func,
     onMoveShouldSetResponderCapture: PropTypes.func,
     onResponderGrant: PropTypes.func,
@@ -51,26 +48,6 @@ class View extends Component {
     super(props, context)
     this._normalizeEventForHandler = this._normalizeEventForHandler.bind(this)
   }
-
-  componentDidMount() {
-    this.handleLayout()
-  }
-
-  // This isn't working--after a compnent updates, it doesn't get called.
-  // Animated components are constantly updated though, so causes a huge performance
-  // dip if you call this on didUpdate.
-
-  handleLayout = debounce(() => {
-    const { onLayout } = this.props
-    if (!onLayout) return
-    const {
-      offsetLeft: x,
-      offsetTop: y,
-      offsetWidth: width,
-      offsetHeight: height,
-    } = ReactDOM.findDOMNode(this)
-    setTimeout(() => onLayout({ nativeEvent: { layout: { width, height, x, y } } }))
-  }, 20)
 
   /**
    * React Native expects `pageX` and `pageY` to be on the `nativeEvent`, but

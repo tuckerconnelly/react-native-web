@@ -1,5 +1,8 @@
-import NativeMethodsDecorator from '../../../modules/NativeMethodsDecorator'
 import React, { Component, PropTypes } from 'react'
+import ReactDOM from 'react-dom'
+import debounce from 'lodash/debounce'
+
+import NativeMethodsDecorator from '../../../modules/NativeMethodsDecorator'
 import StyleSheet from '../../StyleSheet'
 
 const roleComponents = {
@@ -26,6 +29,7 @@ class CoreComponent extends Component {
     accessibilityRole: PropTypes.string,
     accessible: PropTypes.bool,
     component: PropTypes.oneOfType([PropTypes.func, PropTypes.string]),
+    onLayout: PropTypes.func,
     style: PropTypes.oneOfType([PropTypes.array, PropTypes.object]),
     testID: PropTypes.string,
     type: PropTypes.string
@@ -35,6 +39,22 @@ class CoreComponent extends Component {
     accessible: true,
     component: 'div'
   };
+
+  componentDidMount() {
+    this.handleLayout()
+  }
+
+  handleLayout = debounce(() => {
+    const { onLayout } = this.props
+    if (!onLayout) return
+    const {
+      offsetLeft: x,
+      offsetTop: y,
+      offsetWidth: width,
+      offsetHeight: height,
+    } = ReactDOM.findDOMNode(this)
+    setTimeout(() => onLayout({ nativeEvent: { layout: { width, height, x, y } } }))
+  }, 20)
 
   render() {
     const {

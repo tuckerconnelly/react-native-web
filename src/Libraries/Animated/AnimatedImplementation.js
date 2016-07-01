@@ -12,7 +12,10 @@
  */
 'use strict';
 
+import { debounce } from 'lodash'
+
 /* @edit start */
+import AppRegistry from '../AppRegistry'
 import Easing from '../Easing';
 import flattenStyle from '../StyleSheet/flattenStyle';
 import InteractionManager from '../InteractionManager';
@@ -121,7 +124,7 @@ class AnimatedWithChildren extends Animated {
  * this two-phases process is to deal with composite props such as
  * transform which can receive values from multiple parents.
  */
-function _flush(rootNode: AnimatedValue): void {
+function _flush(rootNode: AnimatedValue, finish: bool): void {
   var animatedStyles = new Set();
   function findAnimatedStyles(node) {
     if (typeof node.update === 'function') {
@@ -329,6 +332,25 @@ function withDefault<T>(value: ?T, defaultValue: T): T {
   }
   return value;
 }
+
+function _traverse(internalInstance, visitor) {
+  visitor(internalInstance)
+  if (internalInstance._renderedComponent) {
+    _traverse(internalInstance._renderedComponent, visitor)
+  }
+  if (internalInstance._renderedChildren) {
+    Object.keys(internalInstance._renderedChildren).forEach(
+      childKey => _traverse(internalInstance._renderedChildren[childKey], visitor)
+    )
+  }
+
+}
+
+const callOnLayout = debounce(() => {
+  _traverse(AppRegistry.getAppElement()._reactInternalInstance, ({ _instance }) =>
+    _instance && _instance.handleLayout && _instance.handleLayout()
+  )
+}, 100)
 
 class SpringAnimation extends Animation {
   _overshootClamping: bool;
@@ -637,6 +659,8 @@ class AnimatedValue extends AnimatedWithChildren {
         if (handle !== null) {
           InteractionManager.clearInteractionHandle(handle);
         }
+        _flush(this);
+        callOnLayout();
         callback && callback(result);
       },
       previousAnimation,
@@ -1124,7 +1148,7 @@ function createAnimatedComponent(Component: any): any {
 
       this._propsAnimated = new AnimatedProps(
         nextProps,
-        callback,
+        callback
       );
 
       // When you call detach, it removes the element from the parent list

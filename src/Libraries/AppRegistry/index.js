@@ -29,6 +29,11 @@ class AppRegistry {
     return Object.keys(runnables)
   }
 
+  static getAppElement() {
+    const appKeys = AppRegistry.getAppKeys()
+    return runnables[appKeys[0]]
+  }
+
   static prerenderApplication(appKey: string, appParameters?: Object): string {
     invariant(
       runnables[appKey] && runnables[appKey].prerender,
@@ -40,11 +45,8 @@ class AppRegistry {
   }
 
   static registerComponent(appKey: string, getComponentFunc: ComponentProvider): string {
-    runnables[appKey] = {
-      run: ({ initialProps, rootTag }) => renderApplication(getComponentFunc(), initialProps, rootTag),
-      prerender: ({ initialProps } = {}) => prerenderApplication(getComponentFunc(), initialProps)
-    }
-    return appKey
+    runnables[appKey] = getComponentFunc
+    return runnables[appKey]
   }
 
   static registerConfig(config: Array<AppConfig>) {
