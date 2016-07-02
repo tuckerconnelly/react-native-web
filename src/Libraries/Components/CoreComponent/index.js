@@ -46,7 +46,9 @@ class CoreComponent extends Component {
 
   handleLayout = debounce(() => {
     const { onLayout } = this.props
-    if (!onLayout) return
+
+    // isMounted comes from NativeMethodsDecorator
+    if (!onLayout || !this._isMounted) return
     const {
       offsetLeft: x,
       offsetTop: y,
