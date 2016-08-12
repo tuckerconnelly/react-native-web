@@ -151,7 +151,6 @@ from `style`.
 + `right`
 + `top`
 + `transform`
-+ `transformMatrix`
 + `userSelect`
 + `visibility`
 + `width`
