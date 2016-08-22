@@ -72,6 +72,8 @@ class CoreComponent extends Component {
 
     const Component = roleComponents[accessibilityRole] || component
 
+    delete other.onLayout
+
     return (
       <Component
         {...other}
