@@ -228,7 +228,7 @@ class TimingAnimation extends Animation {
   stop(): void {
     this.__active = false;
     clearTimeout(this._timeout);
-    window.cancelAnimationFrame(this._animationFrame);
+    cancelAnimationFrame(this._animationFrame);
     this.__debouncedOnEnd({finished: false});
   }
 }
@@ -297,7 +297,7 @@ class DecayAnimation extends Animation {
 
   stop(): void {
     this.__active = false;
-    window.cancelAnimationFrame(this._animationFrame);
+    cancelAnimationFrame(this._animationFrame);
     this.__debouncedOnEnd({finished: false});
   }
 }
@@ -347,6 +347,7 @@ function _traverse(internalInstance, visitor) {
 }
 
 const callOnLayout = debounce(() => {
+  if (!AppRegistry.getAppElement()) return
   _traverse(AppRegistry.getAppElement()._reactInternalInstance, ({ _instance }) =>
     _instance && _instance.handleLayout && _instance.handleLayout()
   )
@@ -530,7 +531,7 @@ class SpringAnimation extends Animation {
 
   stop(): void {
     this.__active = false;
-    window.cancelAnimationFrame(this._animationFrame);
+    cancelAnimationFrame(this._animationFrame);
     this.__debouncedOnEnd({finished: false});
   }
 }
