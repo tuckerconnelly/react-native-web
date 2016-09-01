@@ -18,7 +18,7 @@
   },
   "dependencies": {
     "classnames": "^2.2.5",
-    "fbjs": "0.6.x || 0.7.x",
+    "fbjs": "^0.7.2",
     "inline-style-prefix-all": "^1.0.4",
     "lodash": "^4.13.1",
     "lodash.debounce": "^4.0.3",
@@ -64,7 +64,7 @@
   "license": "BSD-3-Clause",
   "repository": {
     "type": "git",
-    "url": "git://github.com/necolas/react-native-web.git"
+    "url": "git://github.com/tuckerconnelly/react-native-web.git"
   },
   "tags": [
     "react"
