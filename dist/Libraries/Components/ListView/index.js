@@ -30,7 +30,7 @@ var ListView = (0, _NativeMethodsDecorator2.default)(_class = (_temp = _class2 =
   function ListView() {
     _classCallCheck(this, ListView);
 
-    return _possibleConstructorReturn(this, Object.getPrototypeOf(ListView).apply(this, arguments));
+    return _possibleConstructorReturn(this, (ListView.__proto__ || Object.getPrototypeOf(ListView)).apply(this, arguments));
   }
 
   _createClass(ListView, [{

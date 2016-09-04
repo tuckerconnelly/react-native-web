@@ -56,7 +56,7 @@ var TextInput = (0, _NativeMethodsDecorator2.default)(_class = (_temp = _class2 
   function TextInput(props, context) {
     _classCallCheck(this, TextInput);
 
-    var _this = _possibleConstructorReturn(this, Object.getPrototypeOf(TextInput).call(this, props, context));
+    var _this = _possibleConstructorReturn(this, (TextInput.__proto__ || Object.getPrototypeOf(TextInput)).call(this, props, context));
 
     _this.blur = function () {
       _TextInputState2.default.blurTextInput(_reactDom2.default.findDOMNode(_this.refs.input));

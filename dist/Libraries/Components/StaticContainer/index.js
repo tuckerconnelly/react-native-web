@@ -43,7 +43,7 @@ var StaticContainer = (_temp = _class = function (_Component) {
   function StaticContainer() {
     _classCallCheck(this, StaticContainer);
 
-    return _possibleConstructorReturn(this, Object.getPrototypeOf(StaticContainer).apply(this, arguments));
+    return _possibleConstructorReturn(this, (StaticContainer.__proto__ || Object.getPrototypeOf(StaticContainer)).apply(this, arguments));
   }
 
   _createClass(StaticContainer, [{

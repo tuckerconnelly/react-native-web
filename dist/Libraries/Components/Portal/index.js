@@ -110,7 +110,7 @@ var Portal = (_temp = _class = function (_Component) {
   function Portal(props) {
     _classCallCheck(this, Portal);
 
-    var _this = _possibleConstructorReturn(this, Object.getPrototypeOf(Portal).call(this, props));
+    var _this = _possibleConstructorReturn(this, (Portal.__proto__ || Object.getPrototypeOf(Portal)).call(this, props));
 
     _this.state = { modals: {} };
     _this._closeModal = _this._closeModal.bind(_this);

@@ -56,7 +56,7 @@ var CoreComponent = (0, _NativeMethodsDecorator2.default)(_class = (_temp2 = _cl
   _inherits(CoreComponent, _Component);
 
   function CoreComponent() {
-    var _Object$getPrototypeO;
+    var _ref;
 
     var _temp, _this, _ret;
 
@@ -66,7 +66,7 @@ var CoreComponent = (0, _NativeMethodsDecorator2.default)(_class = (_temp2 = _cl
       args[_key] = arguments[_key];
     }
 
-    return _ret = (_temp = (_this = _possibleConstructorReturn(this, (_Object$getPrototypeO = Object.getPrototypeOf(CoreComponent)).call.apply(_Object$getPrototypeO, [this].concat(args))), _this), _this.handleLayout = (0, _debounce2.default)(function () {
+    return _ret = (_temp = (_this = _possibleConstructorReturn(this, (_ref = CoreComponent.__proto__ || Object.getPrototypeOf(CoreComponent)).call.apply(_ref, [this].concat(args))), _this), _this.handleLayout = (0, _debounce2.default)(function () {
       var onLayout = _this.props.onLayout;
 
       // isMounted comes from NativeMethodsDecorator

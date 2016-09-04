@@ -54,7 +54,7 @@ var ActivityIndicator = (0, _NativeMethodsDecorator2.default)(_class = (_temp = 
   function ActivityIndicator() {
     _classCallCheck(this, ActivityIndicator);
 
-    return _possibleConstructorReturn(this, Object.getPrototypeOf(ActivityIndicator).apply(this, arguments));
+    return _possibleConstructorReturn(this, (ActivityIndicator.__proto__ || Object.getPrototypeOf(ActivityIndicator)).apply(this, arguments));
   }
 
   _createClass(ActivityIndicator, [{

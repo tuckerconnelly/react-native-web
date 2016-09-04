@@ -40,7 +40,7 @@ var ReactNativeApp = (_temp = _class = function (_Component) {
   function ReactNativeApp(props, context) {
     _classCallCheck(this, ReactNativeApp);
 
-    var _this = _possibleConstructorReturn(this, Object.getPrototypeOf(ReactNativeApp).call(this, props, context));
+    var _this = _possibleConstructorReturn(this, (ReactNativeApp.__proto__ || Object.getPrototypeOf(ReactNativeApp)).call(this, props, context));
 
     _this._handleModalVisibilityChange = _this._handleModalVisibilityChange.bind(_this);
     return _this;

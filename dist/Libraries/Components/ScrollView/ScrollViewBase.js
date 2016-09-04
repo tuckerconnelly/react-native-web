@@ -46,7 +46,7 @@ var ScrollViewBase = (_temp = _class = function (_Component) {
   function ScrollViewBase(props) {
     _classCallCheck(this, ScrollViewBase);
 
-    var _this = _possibleConstructorReturn(this, Object.getPrototypeOf(ScrollViewBase).call(this, props));
+    var _this = _possibleConstructorReturn(this, (ScrollViewBase.__proto__ || Object.getPrototypeOf(ScrollViewBase)).call(this, props));
 
     _this._debouncedOnScrollEnd = (0, _lodash2.default)(_this._handleScrollEnd, 100);
     _this._handlePreventableScrollEvent = _this._handlePreventableScrollEvent.bind(_this);

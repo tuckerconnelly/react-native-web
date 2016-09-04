@@ -12,7 +12,7 @@
  */
 'use strict';
 
-import { debounce } from 'lodash'
+import debounce from 'lodash/debounce'
 
 /* @edit start */
 import AppRegistry from '../AppRegistry'

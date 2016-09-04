@@ -63,7 +63,7 @@ var Image = (0, _NativeMethodsDecorator2.default)(_class = (_temp = _class2 = fu
   function Image(props, context) {
     _classCallCheck(this, Image);
 
-    var _this = _possibleConstructorReturn(this, Object.getPrototypeOf(Image).call(this, props, context));
+    var _this = _possibleConstructorReturn(this, (Image.__proto__ || Object.getPrototypeOf(Image)).call(this, props, context));
 
     var uri = (0, _resolveAssetSource2.default)(props.source);
     // state

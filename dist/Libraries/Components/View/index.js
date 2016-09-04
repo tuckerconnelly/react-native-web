@@ -42,7 +42,7 @@ var View = (0, _NativeMethodsDecorator2.default)(_class = (_temp = _class2 = fun
   function View(props, context) {
     _classCallCheck(this, View);
 
-    var _this = _possibleConstructorReturn(this, Object.getPrototypeOf(View).call(this, props, context));
+    var _this = _possibleConstructorReturn(this, (View.__proto__ || Object.getPrototypeOf(View)).call(this, props, context));
 
     _this._normalizeEventForHandler = _this._normalizeEventForHandler.bind(_this);
     return _this;

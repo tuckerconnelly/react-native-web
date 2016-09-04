@@ -38,7 +38,7 @@ var StaticRenderer = (_temp = _class = function (_Component) {
   function StaticRenderer() {
     _classCallCheck(this, StaticRenderer);
 
-    return _possibleConstructorReturn(this, Object.getPrototypeOf(StaticRenderer).apply(this, arguments));
+    return _possibleConstructorReturn(this, (StaticRenderer.__proto__ || Object.getPrototypeOf(StaticRenderer)).apply(this, arguments));
   }
 
   _createClass(StaticRenderer, [{

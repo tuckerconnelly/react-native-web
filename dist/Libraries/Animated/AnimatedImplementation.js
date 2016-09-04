@@ -21,7 +21,9 @@ var _createClass = function () { function defineProperties(target, props) { for 
 /* @edit start */
 
 
-var _lodash = require('lodash');
+var _debounce = require('lodash/debounce');
+
+var _debounce2 = _interopRequireDefault(_debounce);
 
 var _AppRegistry = require('../AppRegistry');
 
@@ -145,7 +147,7 @@ var AnimatedWithChildren = function (_Animated) {
   function AnimatedWithChildren() {
     _classCallCheck(this, AnimatedWithChildren);
 
-    var _this = _possibleConstructorReturn(this, Object.getPrototypeOf(AnimatedWithChildren).call(this));
+    var _this = _possibleConstructorReturn(this, (AnimatedWithChildren.__proto__ || Object.getPrototypeOf(AnimatedWithChildren)).call(this));
 
     _this._children = [];
     return _this;
@@ -229,7 +231,7 @@ var TimingAnimation = function (_Animation) {
   function TimingAnimation(config) {
     _classCallCheck(this, TimingAnimation);
 
-    var _this2 = _possibleConstructorReturn(this, Object.getPrototypeOf(TimingAnimation).call(this));
+    var _this2 = _possibleConstructorReturn(this, (TimingAnimation.__proto__ || Object.getPrototypeOf(TimingAnimation)).call(this));
 
     _this2._toValue = config.toValue;
     _this2._easing = config.easing !== undefined ? config.easing : easeInOut;
@@ -302,7 +304,7 @@ var DecayAnimation = function (_Animation2) {
   function DecayAnimation(config) {
     _classCallCheck(this, DecayAnimation);
 
-    var _this4 = _possibleConstructorReturn(this, Object.getPrototypeOf(DecayAnimation).call(this));
+    var _this4 = _possibleConstructorReturn(this, (DecayAnimation.__proto__ || Object.getPrototypeOf(DecayAnimation)).call(this));
 
     _this4._deceleration = config.deceleration !== undefined ? config.deceleration : 0.998;
     _this4._velocity = config.velocity;
@@ -371,7 +373,7 @@ function _traverse(internalInstance, visitor) {
   }
 }
 
-var callOnLayout = (0, _lodash.debounce)(function () {
+var callOnLayout = (0, _debounce2.default)(function () {
   if (!_AppRegistry2.default.getAppElement()) return;
   _traverse(_AppRegistry2.default.getAppElement()._reactInternalInstance, function (_ref) {
     var _instance = _ref._instance;
@@ -385,7 +387,7 @@ var SpringAnimation = function (_Animation3) {
   function SpringAnimation(config) {
     _classCallCheck(this, SpringAnimation);
 
-    var _this5 = _possibleConstructorReturn(this, Object.getPrototypeOf(SpringAnimation).call(this));
+    var _this5 = _possibleConstructorReturn(this, (SpringAnimation.__proto__ || Object.getPrototypeOf(SpringAnimation)).call(this));
 
     _this5._overshootClamping = withDefault(config.overshootClamping, false);
     _this5._restDisplacementThreshold = withDefault(config.restDisplacementThreshold, 0.001);
@@ -559,7 +561,7 @@ var AnimatedValue = function (_AnimatedWithChildren) {
   function AnimatedValue(value) {
     _classCallCheck(this, AnimatedValue);
 
-    var _this6 = _possibleConstructorReturn(this, Object.getPrototypeOf(AnimatedValue).call(this));
+    var _this6 = _possibleConstructorReturn(this, (AnimatedValue.__proto__ || Object.getPrototypeOf(AnimatedValue)).call(this));
 
     _this6._value = value;
     _this6._offset = 0;
@@ -777,7 +779,7 @@ var AnimatedValueXY = function (_AnimatedWithChildren2) {
   function AnimatedValueXY(valueIn) {
     _classCallCheck(this, AnimatedValueXY);
 
-    var _this8 = _possibleConstructorReturn(this, Object.getPrototypeOf(AnimatedValueXY).call(this));
+    var _this8 = _possibleConstructorReturn(this, (AnimatedValueXY.__proto__ || Object.getPrototypeOf(AnimatedValueXY)).call(this));
 
     var value = valueIn || { x: 0, y: 0 }; // fixme: shouldn't need `: any`
     if (typeof value.x === 'number' && typeof value.y === 'number') {
@@ -893,7 +895,7 @@ var AnimatedInterpolation = function (_AnimatedWithChildren3) {
   function AnimatedInterpolation(parent, interpolation) {
     _classCallCheck(this, AnimatedInterpolation);
 
-    var _this10 = _possibleConstructorReturn(this, Object.getPrototypeOf(AnimatedInterpolation).call(this));
+    var _this10 = _possibleConstructorReturn(this, (AnimatedInterpolation.__proto__ || Object.getPrototypeOf(AnimatedInterpolation)).call(this));
 
     _this10._parent = parent;
     _this10._interpolation = interpolation;
@@ -933,7 +935,7 @@ var AnimatedAddition = function (_AnimatedWithChildren4) {
   function AnimatedAddition(a, b) {
     _classCallCheck(this, AnimatedAddition);
 
-    var _this11 = _possibleConstructorReturn(this, Object.getPrototypeOf(AnimatedAddition).call(this));
+    var _this11 = _possibleConstructorReturn(this, (AnimatedAddition.__proto__ || Object.getPrototypeOf(AnimatedAddition)).call(this));
 
     _this11._a = a;
     _this11._b = b;
@@ -973,7 +975,7 @@ var AnimatedMultiplication = function (_AnimatedWithChildren5) {
   function AnimatedMultiplication(a, b) {
     _classCallCheck(this, AnimatedMultiplication);
 
-    var _this12 = _possibleConstructorReturn(this, Object.getPrototypeOf(AnimatedMultiplication).call(this));
+    var _this12 = _possibleConstructorReturn(this, (AnimatedMultiplication.__proto__ || Object.getPrototypeOf(AnimatedMultiplication)).call(this));
 
     _this12._a = a;
     _this12._b = b;
@@ -1013,7 +1015,7 @@ var AnimatedTransform = function (_AnimatedWithChildren6) {
   function AnimatedTransform(transforms) {
     _classCallCheck(this, AnimatedTransform);
 
-    var _this13 = _possibleConstructorReturn(this, Object.getPrototypeOf(AnimatedTransform).call(this));
+    var _this13 = _possibleConstructorReturn(this, (AnimatedTransform.__proto__ || Object.getPrototypeOf(AnimatedTransform)).call(this));
 
     _this13._transforms = transforms;
     return _this13;
@@ -1091,7 +1093,7 @@ var AnimatedStyle = function (_AnimatedWithChildren7) {
   function AnimatedStyle(style) {
     _classCallCheck(this, AnimatedStyle);
 
-    var _this16 = _possibleConstructorReturn(this, Object.getPrototypeOf(AnimatedStyle).call(this));
+    var _this16 = _possibleConstructorReturn(this, (AnimatedStyle.__proto__ || Object.getPrototypeOf(AnimatedStyle)).call(this));
 
     style = (0, _flattenStyle2.default)(style) || {};
     if (style.transform) {
@@ -1160,7 +1162,7 @@ var AnimatedProps = function (_Animated2) {
   function AnimatedProps(props, callback) {
     _classCallCheck(this, AnimatedProps);
 
-    var _this17 = _possibleConstructorReturn(this, Object.getPrototypeOf(AnimatedProps).call(this));
+    var _this17 = _possibleConstructorReturn(this, (AnimatedProps.__proto__ || Object.getPrototypeOf(AnimatedProps)).call(this));
 
     if (props.style) {
       props = _extends({}, props, {
@@ -1238,7 +1240,7 @@ function createAnimatedComponent(Component) {
     function AnimatedComponent() {
       _classCallCheck(this, AnimatedComponent);
 
-      return _possibleConstructorReturn(this, Object.getPrototypeOf(AnimatedComponent).apply(this, arguments));
+      return _possibleConstructorReturn(this, (AnimatedComponent.__proto__ || Object.getPrototypeOf(AnimatedComponent)).apply(this, arguments));
     }
 
     _createClass(AnimatedComponent, [{
@@ -1330,7 +1332,7 @@ var AnimatedTracking = function (_Animated3) {
   function AnimatedTracking(value, parent, animationClass, animationConfig, callback) {
     _classCallCheck(this, AnimatedTracking);
 
-    var _this20 = _possibleConstructorReturn(this, Object.getPrototypeOf(AnimatedTracking).call(this));
+    var _this20 = _possibleConstructorReturn(this, (AnimatedTracking.__proto__ || Object.getPrototypeOf(AnimatedTracking)).call(this));
 
     _this20._value = value;
     _this20._parent = parent;

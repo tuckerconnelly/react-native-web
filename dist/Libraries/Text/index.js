@@ -38,7 +38,7 @@ var Text = (0, _NativeMethodsDecorator2.default)(_class = (_temp = _class2 = fun
   function Text() {
     _classCallCheck(this, Text);
 
-    return _possibleConstructorReturn(this, Object.getPrototypeOf(Text).apply(this, arguments));
+    return _possibleConstructorReturn(this, (Text.__proto__ || Object.getPrototypeOf(Text)).apply(this, arguments));
   }
 
   _createClass(Text, [{
