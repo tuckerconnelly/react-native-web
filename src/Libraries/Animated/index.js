@@ -1,19 +1,14 @@
-/**
- * Copyright (c) 2016-present, Nicolas Gallagher.
- * Copyright (c) 2015-present, Facebook, Inc.
- * All rights reserved.
- *
- * @flow
- */
-
-import AnimatedImplementation from './AnimatedImplementation'
+import Animated from 'animated'
 import Image from '../Image'
+import StyleSheet from '../StyleSheet'
 import Text from '../Text'
 import View from '../Components/View'
 
+Animated.inject.FlattenStyle(StyleSheet.flatten)
+
 module.exports = {
-  ...AnimatedImplementation,
-  View: AnimatedImplementation.createAnimatedComponent(View),
-  Text: AnimatedImplementation.createAnimatedComponent(Text),
-  Image: AnimatedImplementation.createAnimatedComponent(Image)
+  ...Animated,
+  Image: Animated.createAnimatedComponent(Image),
+  Text: Animated.createAnimatedComponent(Text),
+  View: Animated.createAnimatedComponent(View)
 }
