@@ -150,7 +150,6 @@ var TouchableWithoutFeedback = React.createClass({
       accessibilityRole,
       testID,
       onLayout,
-      hitSlop,
       style,
       ...other
     } = this.props
@@ -161,7 +160,6 @@ var TouchableWithoutFeedback = React.createClass({
       accessibilityRole: this.props.accessibilityRole,
       testID: this.props.testID,
       onLayout: this.props.onLayout,
-      hitSlop: this.props.hitSlop,
       onStartShouldSetResponder: this.touchableHandleStartShouldSetResponder,
       onResponderTerminationRequest: this.touchableHandleResponderTerminationRequest,
       onResponderGrant: this.touchableHandleResponderGrant,

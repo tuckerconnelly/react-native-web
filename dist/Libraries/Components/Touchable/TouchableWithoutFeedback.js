@@ -151,10 +151,9 @@ var TouchableWithoutFeedback = React.createClass({
     var accessibilityRole = _props.accessibilityRole;
     var testID = _props.testID;
     var onLayout = _props.onLayout;
-    var hitSlop = _props.hitSlop;
     var style = _props.style;
 
-    var other = _objectWithoutProperties(_props, ['accessible', 'accessibilityLabel', 'accessibilityRole', 'testID', 'onLayout', 'hitSlop', 'style']);
+    var other = _objectWithoutProperties(_props, ['accessible', 'accessibilityLabel', 'accessibilityRole', 'testID', 'onLayout', 'style']);
     // Note(avik): remove dynamic typecast once Flow has been upgraded
 
 
@@ -164,7 +163,6 @@ var TouchableWithoutFeedback = React.createClass({
       accessibilityRole: this.props.accessibilityRole,
       testID: this.props.testID,
       onLayout: this.props.onLayout,
-      hitSlop: this.props.hitSlop,
       onStartShouldSetResponder: this.touchableHandleStartShouldSetResponder,
       onResponderTerminationRequest: this.touchableHandleResponderTerminationRequest,
       onResponderGrant: this.touchableHandleResponderGrant,
