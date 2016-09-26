@@ -1,18 +1,20 @@
 'use strict';
 
-var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
+var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; }; /**
+                                                                                                                                                                                                                                                                   * Copyright (c) 2016-present, Nicolas Gallagher.
+                                                                                                                                                                                                                                                                   * Copyright (c) 2015-present, Facebook, Inc.
+                                                                                                                                                                                                                                                                   * All rights reserved.
+                                                                                                                                                                                                                                                                   *
+                                                                                                                                                                                                                                                                   * 
+                                                                                                                                                                                                                                                                   */
 
-var _animated = require('animated');
+var _AnimatedImplementation = require('./AnimatedImplementation');
 
-var _animated2 = _interopRequireDefault(_animated);
+var _AnimatedImplementation2 = _interopRequireDefault(_AnimatedImplementation);
 
 var _Image = require('../Image');
 
 var _Image2 = _interopRequireDefault(_Image);
-
-var _StyleSheet = require('../StyleSheet');
-
-var _StyleSheet2 = _interopRequireDefault(_StyleSheet);
 
 var _Text = require('../Text');
 
@@ -24,10 +26,8 @@ var _View2 = _interopRequireDefault(_View);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-_animated2.default.inject.FlattenStyle(_StyleSheet2.default.flatten);
-
-module.exports = _extends({}, _animated2.default, {
-  Image: _animated2.default.createAnimatedComponent(_Image2.default),
-  Text: _animated2.default.createAnimatedComponent(_Text2.default),
-  View: _animated2.default.createAnimatedComponent(_View2.default)
+module.exports = _extends({}, _AnimatedImplementation2.default, {
+  View: _AnimatedImplementation2.default.createAnimatedComponent(_View2.default),
+  Text: _AnimatedImplementation2.default.createAnimatedComponent(_Text2.default),
+  Image: _AnimatedImplementation2.default.createAnimatedComponent(_Image2.default)
 });
