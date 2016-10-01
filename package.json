@@ -22,6 +22,7 @@
     "babel-preset-react": "^6.11.1",
     "babel-preset-stage-1": "^6.13.0",
     "classnames": "^2.2.5",
+    "eventemitter3": "^2.0.2",
     "fbjs": "^0.7.2",
     "inline-style-prefix-all": "^1.0.4",
     "lodash": "^4.13.1",

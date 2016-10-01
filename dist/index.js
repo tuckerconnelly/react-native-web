@@ -8,12 +8,10 @@ var _extends = Object.assign || function (target) { for (var i = 1; i < argument
 // components
 
 
-// modules
-
-
 // propTypes
 
-// other
+
+// modules
 
 
 var _react = require('react');
@@ -130,10 +128,6 @@ var _View = require('./Libraries/Components/View');
 
 var _View2 = _interopRequireDefault(_View);
 
-var _NativeModules = require('./modules/NativeModules');
-
-var _NativeModules2 = _interopRequireDefault(_NativeModules);
-
 var _ColorPropType = require('./Libraries/StyleSheet/ColorPropType');
 
 var _ColorPropType2 = _interopRequireDefault(_ColorPropType);
@@ -146,13 +140,35 @@ var _PointPropType = require('./Libraries/StyleSheet/PointPropType');
 
 var _PointPropType2 = _interopRequireDefault(_PointPropType);
 
+var _findNodeHandle = require('./modules/findNodeHandle');
+
+var _findNodeHandle2 = _interopRequireDefault(_findNodeHandle);
+
+var _NativeAppEventEmitter = require('./modules/NativeAppEventEmitter');
+
+var _NativeAppEventEmitter2 = _interopRequireDefault(_NativeAppEventEmitter);
+
+var _requireNativeComponent = require('./modules/requireNativeComponent');
+
+var _requireNativeComponent2 = _interopRequireDefault(_requireNativeComponent);
+
+var _web = require('../../../web');
+
+var _web2 = _interopRequireDefault(_web);
+
 var _BaseStyles = require('./Libraries/Components/BaseStyles');
 
 var _BaseStyles2 = _interopRequireDefault(_BaseStyles);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-var ReactNative = _extends({
+// eslint-disable-line import/no-unresolved
+_web2.default.registerComponents(_requireNativeComponent.registerNativeComponent);
+
+// other
+
+
+var NativeModules = _extends({
   // apis
   Animated: _Animated2.default,
   AppRegistry: _AppRegistry2.default,
@@ -184,17 +200,22 @@ var ReactNative = _extends({
   TouchableWithoutFeedback: _TouchableWithoutFeedback2.default,
   View: _View2.default,
 
-  // modules
-  NativeModules: _NativeModules2.default,
-
   // propTypes
   ColorPropType: _ColorPropType2.default,
   EdgeInsetsPropType: _EdgeInsetsPropType2.default,
   PointPropType: _PointPropType2.default,
+
+  // modules
+  findNodeHandle: _findNodeHandle2.default,
+  requireNativeComponent: _requireNativeComponent2.default,
+  NativeAppEventEmitter: _NativeAppEventEmitter2.default
+}, _web2.default.nativeModules, {
 
   // other
   BaseStyles: _BaseStyles2.default
 
 }, _react2.default);
 
-module.exports = ReactNative;
+NativeModules.NativeModules = NativeModules;
+
+module.exports = NativeModules;

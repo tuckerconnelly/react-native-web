@@ -33,19 +33,22 @@ import TouchableOpacity from './Libraries/Components/Touchable/TouchableOpacity'
 import TouchableWithoutFeedback from './Libraries/Components/Touchable/TouchableWithoutFeedback'
 import View from './Libraries/Components/View'
 
-// modules
-import NativeModules from './modules/NativeModules'
-
 // propTypes
-
 import ColorPropType from './Libraries/StyleSheet/ColorPropType'
 import EdgeInsetsPropType from './Libraries/StyleSheet/EdgeInsetsPropType'
 import PointPropType from './Libraries/StyleSheet/PointPropType'
 
+// modules
+import findNodeHandle from './modules/findNodeHandle'
+import NativeAppEventEmitter from './modules/NativeAppEventEmitter'
+import requireNativeComponent, { registerNativeComponent } from './modules/requireNativeComponent'
+import UserConfig from '../../../web' // eslint-disable-line import/no-unresolved
+UserConfig.registerComponents(registerNativeComponent)
+
 // other
 import BaseStyles from './Libraries/Components/BaseStyles'
 
-const ReactNative = {
+const NativeModules = {
   // apis
   Animated,
   AppRegistry,
@@ -77,13 +80,16 @@ const ReactNative = {
   TouchableWithoutFeedback,
   View,
 
-  // modules
-  NativeModules,
-
   // propTypes
   ColorPropType,
   EdgeInsetsPropType,
   PointPropType,
+
+  // modules
+  findNodeHandle,
+  requireNativeComponent,
+  NativeAppEventEmitter,
+  ...UserConfig.nativeModules,
 
   // other
   BaseStyles,
@@ -92,4 +98,6 @@ const ReactNative = {
   ...React
 }
 
-module.exports = ReactNative
+NativeModules.NativeModules = NativeModules
+
+module.exports = NativeModules
