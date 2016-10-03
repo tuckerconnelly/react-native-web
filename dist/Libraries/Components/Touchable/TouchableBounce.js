@@ -132,7 +132,6 @@ var TouchableBounce = React.createClass({
         accessibilityLabel: this.props.accessibilityLabel,
         accessibilityRole: this.props.accessibilityRole || 'button',
         testID: this.props.testID,
-        hitSlop: this.props.hitSlop,
         onStartShouldSetResponder: this.touchableHandleStartShouldSetResponder,
         onResponderTerminationRequest: this.touchableHandleResponderTerminationRequest,
         onResponderGrant: this.touchableHandleResponderGrant,

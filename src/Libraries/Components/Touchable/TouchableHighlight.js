@@ -236,7 +236,6 @@ var TouchableHighlight = React.createClass({
         ref={UNDERLAY_REF}
         style={[styles.root, this.props.style]}
         onLayout={this.props.onLayout}
-        hitSlop={this.props.hitSlop}
         onKeyDown={(e) => { this._onKeyEnter(e, this.touchableHandleActivePressIn) }}
         onKeyPress={(e) => { this._onKeyEnter(e, this.touchableHandlePress) }}
         onKeyUp={(e) => { this._onKeyEnter(e, this.touchableHandleActivePressOut) }}

@@ -167,7 +167,6 @@ var TouchableOpacity = React.createClass({
         style: [styles.root, this.props.style, { opacity: this.state.anim }],
         testID: this.props.testID,
         onLayout: this.props.onLayout,
-        hitSlop: this.props.hitSlop,
         onKeyDown: function onKeyDown(e) {
           _this._onKeyEnter(e, _this.touchableHandleActivePressIn);
         },
