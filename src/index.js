@@ -7,6 +7,7 @@ import Animated from './Libraries/Animated'
 import AppRegistry from './Libraries/AppRegistry'
 import AppState from './Libraries/AppState'
 import AsyncStorage from './Libraries/AsyncStorage'
+import DeviceEventEmitter from './Libraries/EventEmitter/DeviceEventEmitter'
 import Dimensions from './Libraries/Dimensions'
 import Easing from './Libraries/Easing'
 import InteractionManager from './Libraries/InteractionManager'
@@ -54,6 +55,7 @@ const NativeModules = {
   AppRegistry,
   AppState,
   AsyncStorage,
+  DeviceEventEmitter,
   Dimensions,
   Easing,
   InteractionManager,

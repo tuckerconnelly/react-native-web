@@ -36,6 +36,10 @@ var _AsyncStorage = require('./Libraries/AsyncStorage');
 
 var _AsyncStorage2 = _interopRequireDefault(_AsyncStorage);
 
+var _DeviceEventEmitter = require('./Libraries/EventEmitter/DeviceEventEmitter');
+
+var _DeviceEventEmitter2 = _interopRequireDefault(_DeviceEventEmitter);
+
 var _Dimensions = require('./Libraries/Dimensions');
 
 var _Dimensions2 = _interopRequireDefault(_Dimensions);
@@ -174,6 +178,7 @@ var NativeModules = _extends({
   AppRegistry: _AppRegistry2.default,
   AppState: _AppState2.default,
   AsyncStorage: _AsyncStorage2.default,
+  DeviceEventEmitter: _DeviceEventEmitter2.default,
   Dimensions: _Dimensions2.default,
   Easing: _Easing2.default,
   InteractionManager: _InteractionManager2.default,
