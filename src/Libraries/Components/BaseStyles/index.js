@@ -3,6 +3,23 @@ import React from 'react'
 export default () =>
   <style
     dangerouslySetInnerHTML={{ __html: `
+      html {
+        width: 100%;
+        height: 100%;
+      }
+
+      body {
+        width: 100%;
+        height: 100%;
+        margin: 0;
+      }
+
+      #root {
+        width 100%;
+        height: 100%;
+        flex: 1;
+      }
+      
       .rnw-Image-initial {
         align-self: flex-start;
 
