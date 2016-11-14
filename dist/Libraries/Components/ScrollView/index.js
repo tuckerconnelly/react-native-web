@@ -169,7 +169,6 @@ var ScrollView = _react2.default.createClass({
 
     var contentContainer = _react2.default.createElement(_View2.default, _extends({}, contentSizeChangeProps, {
       children: this.props.children,
-      collapsable: false,
       ref: INNERVIEW,
       style: contentContainerStyle
     }));

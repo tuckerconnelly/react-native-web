@@ -29,6 +29,10 @@ var _View = require('../View');
 
 var _View2 = _interopRequireDefault(_View);
 
+var _omit = require('lodash/omit');
+
+var _omit2 = _interopRequireDefault(_omit);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -116,7 +120,8 @@ var ScrollViewBase = (_temp = _class = function (_Component) {
   }, {
     key: 'render',
     value: function render() {
-      return _react2.default.createElement(_View2.default, _extends({}, this.props, {
+      var propsWithoutScrollSpecificProps = (0, _omit2.default)(this.props, 'onScrollBeginDrag', 'onScrollEndDrag', 'onMomentumScrollBegin', 'onMomentumScrollEnd', 'scrollEnabled');
+      return _react2.default.createElement(_View2.default, _extends({}, propsWithoutScrollSpecificProps, {
         onScroll: this._handleScroll,
         onTouchMove: this._handlePreventableScrollEvent(this.props.onTouchMove),
         onWheel: this._handlePreventableScrollEvent(this.props.onWheel)

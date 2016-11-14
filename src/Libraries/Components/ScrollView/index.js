@@ -151,7 +151,6 @@ const ScrollView = React.createClass({ // eslint-disable-line react/prefer-es6-c
       <View
         {...contentSizeChangeProps}
         children={this.props.children}
-        collapsable={false}
         ref={INNERVIEW}
         style={contentContainerStyle}
       />

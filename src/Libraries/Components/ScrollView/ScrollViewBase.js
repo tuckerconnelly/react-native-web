@@ -9,6 +9,7 @@
 import debounce from 'lodash.debounce'
 import React, { Component, PropTypes } from 'react'
 import View from '../View'
+import omit from 'lodash/omit'
 
 /**
  * Encapsulates the Web-specific scroll throttling and disabling logic
@@ -83,9 +84,16 @@ export default class ScrollViewBase extends Component {
   }
 
   render() {
+    const propsWithoutScrollSpecificProps = omit(this.props,
+      'onScrollBeginDrag',
+      'onScrollEndDrag',
+      'onMomentumScrollBegin',
+      'onMomentumScrollEnd',
+      'scrollEnabled',
+    )
     return (
       <View
-        {...this.props}
+        {...propsWithoutScrollSpecificProps}
         onScroll={this._handleScroll}
         onTouchMove={this._handlePreventableScrollEvent(this.props.onTouchMove)}
         onWheel={this._handlePreventableScrollEvent(this.props.onWheel)}
