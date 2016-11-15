@@ -1,4 +1,3 @@
-/* eslint-disable */
 /**
  * Copyright (c) 2015-present, Facebook, Inc.
  * All rights reserved.
@@ -13,17 +12,14 @@
 /* eslint no-bitwise: 0 */
 'use strict';
 
-/* @edit start */
-
 var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
-var normalizeColor = require('../StyleSheet/normalizeColor');
 var invariant = require('fbjs/lib/invariant');
-/* @edit end */
+var normalizeColor = require('../StyleSheet/normalizeColor');
 
 var linear = function linear(t) {
   return t;
@@ -149,7 +145,7 @@ function colorToRgba(input) {
     return input;
   }
 
-  int32Color = int32Color || 0; // $FlowIssue
+  int32Color = int32Color || 0;
 
   var r = (int32Color & 0xff000000) >>> 24;
   var g = (int32Color & 0x00ff0000) >>> 16;
@@ -207,15 +203,25 @@ function createInterpolationFromStringOutputRange(config) {
     }));
   });
 
+  // rgba requires that the r,g,b are integers.... so we want to round them, but we *dont* want to
+  // round the opacity (4th column).
+  var shouldRound = isRgbOrRgba(outputRange[0]);
+
   return function (input) {
     var i = 0;
     // 'rgba(0, 100, 200, 0)'
     // ->
     // 'rgba(${interpolations[0](input)}, ${interpolations[1](input)}, ...'
     return outputRange[0].replace(stringShapeRegex, function () {
-      return String(interpolations[i++](input));
+      var val = +interpolations[i++](input);
+      var rounded = shouldRound && i < 4 ? Math.round(val) : Math.round(val * 1000) / 1000;
+      return String(rounded);
     });
   };
+}
+
+function isRgbOrRgba(range) {
+  return typeof range === 'string' && range.startsWith('rgb');
 }
 
 function checkPattern(arr) {

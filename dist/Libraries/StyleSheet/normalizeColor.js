@@ -1,4 +1,3 @@
-/* eslint-disable */
 /**
  * Copyright (c) 2015-present, Facebook, Inc.
  * All rights reserved.
@@ -180,9 +179,6 @@ function parsePercentage(str) {
 }
 
 var names = {
-  /* @edit start */
-  inherit: 'inherit',
-  /* @edit end */
   transparent: 0x00000000,
 
   // http://www.w3.org/TR/css3-color/#svg-color
