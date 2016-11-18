@@ -27,7 +27,7 @@
     "inline-style-prefix-all": "^1.0.4",
     "lodash": "^4.13.1",
     "lodash.debounce": "^4.0.3",
-    "react-textarea-autosize": "^3.1.0",
+    "react-textarea-autosize": "^4.0.5",
     "react-timer-mixin": "^0.13.3"
   },
   "devDependencies": {
