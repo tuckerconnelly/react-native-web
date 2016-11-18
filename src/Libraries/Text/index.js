@@ -12,6 +12,7 @@ class Text extends Component {
     accessible: CoreComponent.propTypes.accessible,
     children: PropTypes.any,
     className: PropTypes.string,
+    ellipsizeMode: PropTypes.string,
     numberOfLines: PropTypes.number,
     onPress: PropTypes.func,
     testID: CoreComponent.propTypes.testID
@@ -29,6 +30,7 @@ class Text extends Component {
     const {
       className,
       numberOfLines,
+      ellipsizeMode, // eslint-disable-line no-unused-vars
       onPress,
       ...other
     } = this.props

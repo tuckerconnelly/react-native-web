@@ -52,9 +52,10 @@ var Text = (0, _NativeMethodsDecorator2.default)(_class = (_temp = _class2 = fun
       var _props = this.props;
       var className = _props.className;
       var numberOfLines = _props.numberOfLines;
+      var ellipsizeMode = _props.ellipsizeMode;
       var onPress = _props.onPress;
 
-      var other = _objectWithoutProperties(_props, ['className', 'numberOfLines', 'onPress']);
+      var other = _objectWithoutProperties(_props, ['className', 'numberOfLines', 'ellipsizeMode', 'onPress']);
 
       return _react2.default.createElement(_CoreComponent2.default, _extends({}, other, {
         className: (0, _classnames2.default)('rnw-Text', className, numberOfLines === 1 && 'rnw-Text-singleLineStyle'),
@@ -71,6 +72,7 @@ var Text = (0, _NativeMethodsDecorator2.default)(_class = (_temp = _class2 = fun
   accessible: _CoreComponent2.default.propTypes.accessible,
   children: _react.PropTypes.any,
   className: _react.PropTypes.string,
+  ellipsizeMode: _react.PropTypes.string,
   numberOfLines: _react.PropTypes.number,
   onPress: _react.PropTypes.func,
   testID: _CoreComponent2.default.propTypes.testID
