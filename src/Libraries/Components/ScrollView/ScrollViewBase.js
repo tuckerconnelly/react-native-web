@@ -65,17 +65,34 @@ export default class ScrollViewBase extends Component {
     this._state.isScrolling = true
     this._state.scrollLastTick = Date.now()
   }
+  
+  _makeNativeEvent(e) {
+    return {
+      nativeEvent: {
+        contentOffset: {
+          x: e.target.scrollLeft,
+          y: e.target.scrollTop,
+        },
+      }
+    }
+  }
 
   _handleScrollTick(e) {
     const { onScroll } = this.props
     this._state.scrollLastTick = Date.now()
-    if (onScroll) onScroll(e)
+    if (onScroll) {
+      e.persist()
+      onScroll(this._makeNativeEvent(e))
+    }
   }
 
   _handleScrollEnd(e) {
     const { onScroll } = this.props
     this._state.isScrolling = false
-    if (onScroll) onScroll(e)
+    if (onScroll) {
+      e.persist()
+      onScroll(this._makeNativeEvent(e))
+    }
   }
 
   _shouldEmitScrollEvent(lastTick, eventThrottle) {
@@ -90,6 +107,7 @@ export default class ScrollViewBase extends Component {
       'onMomentumScrollBegin',
       'onMomentumScrollEnd',
       'scrollEnabled',
+      'scrollEventThrottle',
     )
     return (
       <View

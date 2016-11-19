@@ -96,12 +96,27 @@ var ScrollViewBase = (_temp = _class = function (_Component) {
       this._state.scrollLastTick = Date.now();
     }
   }, {
+    key: '_makeNativeEvent',
+    value: function _makeNativeEvent(e) {
+      return {
+        nativeEvent: {
+          contentOffset: {
+            x: e.target.scrollLeft,
+            y: e.target.scrollTop
+          }
+        }
+      };
+    }
+  }, {
     key: '_handleScrollTick',
     value: function _handleScrollTick(e) {
       var onScroll = this.props.onScroll;
 
       this._state.scrollLastTick = Date.now();
-      if (onScroll) onScroll(e);
+      if (onScroll) {
+        e.persist();
+        onScroll(this._makeNativeEvent(e));
+      }
     }
   }, {
     key: '_handleScrollEnd',
@@ -109,7 +124,10 @@ var ScrollViewBase = (_temp = _class = function (_Component) {
       var onScroll = this.props.onScroll;
 
       this._state.isScrolling = false;
-      if (onScroll) onScroll(e);
+      if (onScroll) {
+        e.persist();
+        onScroll(this._makeNativeEvent(e));
+      }
     }
   }, {
     key: '_shouldEmitScrollEvent',
@@ -120,7 +138,7 @@ var ScrollViewBase = (_temp = _class = function (_Component) {
   }, {
     key: 'render',
     value: function render() {
-      var propsWithoutScrollSpecificProps = (0, _omit2.default)(this.props, 'onScrollBeginDrag', 'onScrollEndDrag', 'onMomentumScrollBegin', 'onMomentumScrollEnd', 'scrollEnabled');
+      var propsWithoutScrollSpecificProps = (0, _omit2.default)(this.props, 'onScrollBeginDrag', 'onScrollEndDrag', 'onMomentumScrollBegin', 'onMomentumScrollEnd', 'scrollEnabled', 'scrollEventThrottle');
       return _react2.default.createElement(_View2.default, _extends({}, propsWithoutScrollSpecificProps, {
         onScroll: this._handleScroll,
         onTouchMove: this._handlePreventableScrollEvent(this.props.onTouchMove),
