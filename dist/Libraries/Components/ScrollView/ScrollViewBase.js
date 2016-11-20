@@ -75,6 +75,9 @@ var ScrollViewBase = (_temp = _class = function (_Component) {
   }, {
     key: '_handleScroll',
     value: function _handleScroll(e) {
+      // NOTE Probably not super performant to e.persist(), given how many scroll
+      // events are created onScroll
+      e.persist();
       var scrollEventThrottle = this.props.scrollEventThrottle;
       // A scroll happened, so the scroll bumps the debounce.
 
@@ -113,10 +116,7 @@ var ScrollViewBase = (_temp = _class = function (_Component) {
       var onScroll = this.props.onScroll;
 
       this._state.scrollLastTick = Date.now();
-      if (onScroll) {
-        e.persist();
-        onScroll(this._makeNativeEvent(e));
-      }
+      if (onScroll) onScroll(this._makeNativeEvent(e));
     }
   }, {
     key: '_handleScrollEnd',
@@ -124,10 +124,7 @@ var ScrollViewBase = (_temp = _class = function (_Component) {
       var onScroll = this.props.onScroll;
 
       this._state.isScrolling = false;
-      if (onScroll) {
-        e.persist();
-        onScroll(this._makeNativeEvent(e));
-      }
+      if (onScroll) onScroll(this._makeNativeEvent(e));
     }
   }, {
     key: '_shouldEmitScrollEvent',
