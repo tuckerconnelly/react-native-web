@@ -11,6 +11,7 @@ import DeviceEventEmitter from './Libraries/EventEmitter/DeviceEventEmitter'
 import Dimensions from './Libraries/Dimensions'
 import Easing from './Libraries/Easing'
 import InteractionManager from './Libraries/InteractionManager'
+import Linking from './Libraries/Linking'
 import NetInfo from './Libraries/NetInfo'
 import PanResponder from './Libraries/PanResponder'
 import PixelRatio from './Libraries/PixelRatio'
@@ -59,6 +60,7 @@ const NativeModules = {
   Dimensions,
   Easing,
   InteractionManager,
+  Linking,
   NetInfo,
   PanResponder,
   PixelRatio,

@@ -52,6 +52,10 @@ var _InteractionManager = require('./Libraries/InteractionManager');
 
 var _InteractionManager2 = _interopRequireDefault(_InteractionManager);
 
+var _Linking = require('./Libraries/Linking');
+
+var _Linking2 = _interopRequireDefault(_Linking);
+
 var _NetInfo = require('./Libraries/NetInfo');
 
 var _NetInfo2 = _interopRequireDefault(_NetInfo);
@@ -182,6 +186,7 @@ var NativeModules = _extends({
   Dimensions: _Dimensions2.default,
   Easing: _Easing2.default,
   InteractionManager: _InteractionManager2.default,
+  Linking: _Linking2.default,
   NetInfo: _NetInfo2.default,
   PanResponder: _PanResponder2.default,
   PixelRatio: _PixelRatio2.default,
