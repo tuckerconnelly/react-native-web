@@ -16,6 +16,8 @@
 
 var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
 
+function _objectWithoutProperties(obj, keys) { var target = {}; for (var i in obj) { if (keys.indexOf(i) >= 0) continue; if (!Object.prototype.hasOwnProperty.call(obj, i)) continue; target[i] = obj[i]; } return target; }
+
 var Animated = require('../../Animated');
 var NativeMethodsMixin = require('../../../modules/NativeMethodsMixin');
 var React = require('react');
@@ -158,15 +160,18 @@ var TouchableOpacity = React.createClass({
   render: function render() {
     var _this = this;
 
+    var _props = this.props;
+    var style = _props.style;
+    var children = _props.children;
+
+    var other = _objectWithoutProperties(_props, ['style', 'children']);
+
     return React.createElement(
       Animated.View,
-      {
+      _extends({
         accessible: true,
-        accessibilityLabel: this.props.accessibilityLabel,
         accessibilityRole: this.props.accessibilityRole || 'button',
         style: [styles.root, this.props.style, { opacity: this.state.anim }],
-        testID: this.props.testID,
-        onLayout: this.props.onLayout,
         onKeyDown: function onKeyDown(e) {
           _this._onKeyEnter(e, _this.touchableHandleActivePressIn);
         },
@@ -183,7 +188,7 @@ var TouchableOpacity = React.createClass({
         onResponderRelease: this.touchableHandleResponderRelease,
         onResponderTerminate: this.touchableHandleResponderTerminate,
         tabIndex: '0'
-      },
+      }, other),
       this.props.children
     );
   }

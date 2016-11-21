@@ -164,14 +164,16 @@ var TouchableOpacity = React.createClass({
   },
 
   render: function() {
+    const {
+      style,
+      children,
+      ...other
+    } = this.props
     return (
       <Animated.View
         accessible={true}
-        accessibilityLabel={this.props.accessibilityLabel}
         accessibilityRole={this.props.accessibilityRole || 'button'}
         style={[styles.root, this.props.style, {opacity: this.state.anim}]}
-        testID={this.props.testID}
-        onLayout={this.props.onLayout}
         onKeyDown={(e) => { this._onKeyEnter(e, this.touchableHandleActivePressIn) }}
         onKeyPress={(e) => { this._onKeyEnter(e, this.touchableHandlePress) }}
         onKeyUp={(e) => { this._onKeyEnter(e, this.touchableHandleActivePressOut) }}
@@ -182,7 +184,7 @@ var TouchableOpacity = React.createClass({
         onResponderRelease={this.touchableHandleResponderRelease}
         onResponderTerminate={this.touchableHandleResponderTerminate}
         tabIndex='0'
-      >
+        {...other}>
         {this.props.children}
       </Animated.View>
     );
