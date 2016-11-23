@@ -8,6 +8,65 @@
 
 Browser support: Chrome, Firefox, Safari >= 7, IE 10, Edge.
 
+## How this fork differs
+
+- Adds support for `onLayout`
+- Reduces CSS footprint dramatically by using classes instead of inline styles
+- Adds support for `NativeModules`
+- Adds support for `Linking`
+- Adds support for `Platform.select`
+- Matches scrollEvent.nativeEvent to react-native's
+- [Source code organization](https://github.com/tuckerconnelly/react-native-web/tree/master/src/Libraries) maps 1:1 with [React Native repo](https://github.com/facebook/react-native/tree/master/Libraries)
+- Bunch of other little fixes
+
+The setup is a little different. Make sure your `index.web.js` looks something this:
+
+```js
+import React from 'react'
+import { render } from 'react-dom'
+import { AppRegistry, BaseStyles } from 'react-native-web'
+
+import App from './src/index'
+
+const app = render(
+  <App>
+    <BaseStyles />
+  </App>,
+  document.getElementById('root')
+)
+AppRegistry.registerComponent('client', app)
+```
+
+`<BaseStyles />` is a stylesheet with css classes for `View`, `<Image />`, etc.
+
+`AppRegister.registerComponent` is what allows `onLayout` to work.
+
+Then make sure you have a `web/index.js` file in your repo that might look something like this:
+
+```js
+const { RCTCamera, CameraManager } = require('react-native-camera/web')
+const { RCTVideo } = require('react-native-video/web')
+
+module.exports = {
+  registerComponents: register => {
+    register('RCTCamera', RCTCamera)
+    register('RCTVideo', RCTVideo)
+  },
+  nativeModules: {
+    CameraManager,
+  },
+}
+```
+
+This is where native modules are registered. Of course, you can leave `registerComponents` and `nativeModules` blank if you don't want to register any NativeModules, but they need to be there for this fork to start (much like your `android/` and `ios/` folders need to be there :) )
+
+I've forked a couple react-native repos to add web NativeModules:
+
+- [tuckerconnelly/react-native-video](https://github.com/tuckerconnelly/react-native-video)
+- [tuckerconnelly/react-native-camera](https://github.com/tuckerconnelly/react-native-camera)
+
+For a working example project, check out [carbon-ui-docs](https://github.com/tuckerconnelly/carbon-ui-docs)
+
 ## Overview
 
 "React Native for Web" is a project to bring React Native's building blocks and
