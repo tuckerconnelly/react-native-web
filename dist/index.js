@@ -80,6 +80,10 @@ var _UIManager = require('./Libraries/UIManager');
 
 var _UIManager2 = _interopRequireDefault(_UIManager);
 
+var _dismissKeyboard = require('./Libraries/Utilities/dismissKeyboard');
+
+var _dismissKeyboard2 = _interopRequireDefault(_dismissKeyboard);
+
 var _CoreComponent = require('./Libraries/Components/CoreComponent');
 
 var _CoreComponent2 = _interopRequireDefault(_CoreComponent);
@@ -193,6 +197,7 @@ var NativeModules = _extends({
   Platform: _Platform2.default,
   StyleSheet: _StyleSheet2.default,
   UIManager: _UIManager2.default,
+  dismissKeyboard: _dismissKeyboard2.default,
 
   // components
   CoreComponent: _CoreComponent2.default,

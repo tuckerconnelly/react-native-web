@@ -18,6 +18,7 @@ import PixelRatio from './Libraries/PixelRatio'
 import Platform from './Libraries/Platform'
 import StyleSheet from './Libraries/StyleSheet'
 import UIManager from './Libraries/UIManager'
+import dismissKeyboard from './Libraries/Utilities/dismissKeyboard'
 
 // components
 import CoreComponent from './Libraries/Components/CoreComponent'
@@ -67,6 +68,7 @@ const NativeModules = {
   Platform,
   StyleSheet,
   UIManager,
+  dismissKeyboard,
 
   // components
   CoreComponent,
