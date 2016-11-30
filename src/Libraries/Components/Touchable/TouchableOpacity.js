@@ -21,6 +21,7 @@ var StyleSheet = require('../../StyleSheet');
 var TimerMixin = require('react-timer-mixin');
 var Touchable = require('./Touchable');
 var TouchableWithoutFeedback = require('./TouchableWithoutFeedback');
+var omit = require('lodash/omit');
 
 var ensurePositiveDelayProps = require('./ensurePositiveDelayProps');
 var flattenStyle = require('../../StyleSheet/flattenStyle');
@@ -184,7 +185,7 @@ var TouchableOpacity = React.createClass({
         onResponderRelease={this.touchableHandleResponderRelease}
         onResponderTerminate={this.touchableHandleResponderTerminate}
         tabIndex='0'
-        {...other}>
+        {...omit(other, 'onPress', 'activeOpacity')}>
         {this.props.children}
       </Animated.View>
     );
