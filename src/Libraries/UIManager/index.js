@@ -1,4 +1,4 @@
-import CSSPropertyOperations from 'react/lib/CSSPropertyOperations'
+import CSSPropertyOperations from 'react-dom/lib/CSSPropertyOperations'
 import flattenStyle from '../StyleSheet/flattenStyle'
 import processTransform from '../StyleSheet/processTransform'
 

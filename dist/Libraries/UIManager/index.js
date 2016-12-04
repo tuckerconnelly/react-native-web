@@ -1,6 +1,6 @@
 'use strict';
 
-var _CSSPropertyOperations = require('react/lib/CSSPropertyOperations');
+var _CSSPropertyOperations = require('react-dom/lib/CSSPropertyOperations');
 
 var _CSSPropertyOperations2 = _interopRequireDefault(_CSSPropertyOperations);
 
