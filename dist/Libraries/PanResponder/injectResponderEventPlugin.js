@@ -1,10 +1,10 @@
 'use strict';
 
-var _EventConstants = require('react-dom/lib/EventConstants');
+var _EventConstants = require('react/lib/EventConstants');
 
 var _EventConstants2 = _interopRequireDefault(_EventConstants);
 
-var _EventPluginRegistry = require('react-dom/lib/EventPluginRegistry');
+var _EventPluginRegistry = require('react/lib/EventPluginRegistry');
 
 var _EventPluginRegistry2 = _interopRequireDefault(_EventPluginRegistry);
 
@@ -12,11 +12,11 @@ var _ExecutionEnvironment = require('fbjs/lib/ExecutionEnvironment');
 
 var _ExecutionEnvironment2 = _interopRequireDefault(_ExecutionEnvironment);
 
-var _ResponderEventPlugin = require('react-dom/lib/ResponderEventPlugin');
+var _ResponderEventPlugin = require('react/lib/ResponderEventPlugin');
 
 var _ResponderEventPlugin2 = _interopRequireDefault(_ResponderEventPlugin);
 
-var _ResponderTouchHistoryStore = require('react-dom/lib/ResponderTouchHistoryStore');
+var _ResponderTouchHistoryStore = require('react/lib/ResponderTouchHistoryStore');
 
 var _ResponderTouchHistoryStore2 = _interopRequireDefault(_ResponderTouchHistoryStore);
 

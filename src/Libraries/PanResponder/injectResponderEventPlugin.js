@@ -1,10 +1,10 @@
 // based on https://github.com/facebook/react/pull/4303/files
 
-import EventConstants from 'react-dom/lib/EventConstants'
-import EventPluginRegistry from 'react-dom/lib/EventPluginRegistry'
+import EventConstants from 'react/lib/EventConstants'
+import EventPluginRegistry from 'react/lib/EventPluginRegistry'
 import ExecutionEnvironment from 'fbjs/lib/ExecutionEnvironment'
-import ResponderEventPlugin from 'react-dom/lib/ResponderEventPlugin'
-import ResponderTouchHistoryStore from 'react-dom/lib/ResponderTouchHistoryStore'
+import ResponderEventPlugin from 'react/lib/ResponderEventPlugin'
+import ResponderTouchHistoryStore from 'react/lib/ResponderTouchHistoryStore'
 import normalizeNativeEvent from './normalizeNativeEvent'
 
 const {
