@@ -218,7 +218,8 @@ var styles = _StyleSheet2.default.create({
   base: {
     flex: 1,
     overflowX: 'hidden',
-    overflowY: 'auto'
+    overflowY: 'auto',
+    WebkitOverflowScrolling: 'touch'
   },
   baseHorizontal: {
     overflowX: 'auto',

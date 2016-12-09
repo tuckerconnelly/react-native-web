@@ -33,5 +33,6 @@ module.exports = {
   overflowY: autoOrHiddenOrVisible,
   userSelect: string,
   visibility: hiddenOrVisible,
-  zIndex: number
+  zIndex: number,
+  WebkitOverflowScrolling: oneOf(['auto', 'touch'])
 }

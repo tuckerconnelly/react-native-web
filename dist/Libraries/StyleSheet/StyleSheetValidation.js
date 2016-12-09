@@ -97,7 +97,8 @@ StyleSheetValidation.addValidStylePropTypes({
   direction: _react.PropTypes.string, /* @private */
   float: _react.PropTypes.oneOf(['left', 'none', 'right']),
   font: _react.PropTypes.string, /* @private */
-  listStyle: _react.PropTypes.string
+  listStyle: _react.PropTypes.string,
+  WebkitOverflowScrolling: _react.PropTypes.string /* @private */
 });
 
 module.exports = StyleSheetValidation;

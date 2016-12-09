@@ -51,5 +51,6 @@ module.exports = _extends({}, _BorderPropTypes2.default, _LayoutPropTypes2.defau
   overflowY: autoOrHiddenOrVisible,
   userSelect: string,
   visibility: hiddenOrVisible,
-  zIndex: number
+  zIndex: number,
+  WebkitOverflowScrolling: oneOf(['auto', 'touch'])
 });
