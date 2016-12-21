@@ -13,6 +13,16 @@ Browser support: Chrome, Firefox, Safari >= 7, IE 10, Edge.
 [travis-image]: https://travis-ci.org/necolas/react-native-web.svg?branch=master
 [travis-url]: https://travis-ci.org/necolas/react-native-web
 
+## How this fork differs
+
+This fork is to temporarily add support for [carbon-ui](https://github.com/tuckerconnelly/carbon-ui) and [uranium](https://github.com/tuckerconnelly/uranium).
+
+It basically just uses classnames to style the base components instead of inline styles.
+
+Once https://github.com/necolas/react-native-web/pull/283 is resolved we can all switch to using react-native-web.
+
+You need to use AppRegistry for this fork to work :)
+
 ## Overview
 
 "React Native for Web" is a project to bring React Native's building blocks and
